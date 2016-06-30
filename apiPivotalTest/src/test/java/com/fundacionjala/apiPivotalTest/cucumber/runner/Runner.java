@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
                     "json:target/test-report.json",
                     "junit:target/test-report.xml"},
             features = {"src/test/resources/features/"},
-            glue={"com.fundacionjala.apiPivotalTest.cucumber.steps"}
+            glue={"com.fundacionjala.apiPivotalTest.cucumber"}
     )
     public class Runner {
 

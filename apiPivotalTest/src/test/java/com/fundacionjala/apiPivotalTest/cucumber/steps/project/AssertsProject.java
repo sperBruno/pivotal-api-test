@@ -14,7 +14,7 @@ public class AssertsProject {
     @Then("^I expect status code (\\d+)$")
     public void iExpectStatusCode(int statusCodeExpected)  {
         System.out.println(statusCodeExpected);
-
+        System.out.println(createProject.getResponse().prettyPrint());
         assertEquals(statusCodeExpected, createProject.getResponse().statusCode());
     }
 }
