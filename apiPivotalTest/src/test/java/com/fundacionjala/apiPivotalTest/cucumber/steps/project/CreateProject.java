@@ -3,7 +3,6 @@ package com.fundacionjala.apiPivotalTest.cucumber.steps.project;
 import com.fundacionjala.apiPivotalTest.Request;
 import com.fundacionjala.apiPivotalTest.cucumber.steps.CommonSteps;
 import com.jayway.restassured.response.Response;
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 
@@ -17,7 +16,7 @@ public class CreateProject extends CommonSteps {
         request = new Request();
     }
 
-    @And("^I have a set of projects$")
+    @Given("^I have a set of projects$")
     public void iHaveASetOfProjects() {
 
     }
