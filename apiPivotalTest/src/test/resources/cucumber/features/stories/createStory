@@ -1,3 +1,4 @@
+@story
 Feature: Create Story
 
   Background: set connection to pivotal tracker API REST

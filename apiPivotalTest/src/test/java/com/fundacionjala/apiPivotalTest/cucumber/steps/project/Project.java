@@ -25,7 +25,7 @@ public class Project {
     @Given("^I have the next parameters to create a project:$")
     public void iHaveTheNextParametersToCreateAProject(Map<String, Object> parameters) {
         this.parameters = new JSONObject();
-        this.parameters.put("name", parameters.get("name"));
+        this.parameters.put("name", new StringBuilder().append(parameters.get("name")).append(System.currentTimeMillis()));
         this.parameters.put("public", new Boolean(parameters.get("public").toString()));
     }
 
@@ -35,9 +35,12 @@ public class Project {
 
     @Given("^I have a project created$")
     public void iHaveAProjectCreated() {
+
         int idProjectToDelete = response.getBody().path("id");
         parameters.clear();
         parameters.put("id", idProjectToDelete);
+
+
     }
 
     @And("^I have (.*) as a new project name$")

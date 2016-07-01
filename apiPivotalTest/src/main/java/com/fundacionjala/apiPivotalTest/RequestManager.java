@@ -10,7 +10,7 @@ public class RequestManager {
     private static RequestSpecification REQUEST = Authentication.getInstance().getRequestSpecification();
 private RequestManager(){}
     public static Response getRequest(String endpoint){
-        return REQUEST.get(endpoint);
+        return REQUEST.body("").when().get(endpoint);
     }
 
     public static Response postRequest(String endpoint, Map<String,Object> parameters ){

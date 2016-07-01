@@ -7,7 +7,7 @@ Feature: create project
     Given I have a set of projects
     When I send a GET request to /projects endpoint
     Then I expect the status code 200
-
+  @project
   Scenario: Create project
     Given I have the next parameters to create a project:
 
