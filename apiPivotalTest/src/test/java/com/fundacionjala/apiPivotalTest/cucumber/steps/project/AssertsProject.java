@@ -1,20 +1,19 @@
 package com.fundacionjala.apiPivotalTest.cucumber.steps.project;
 
-
-import cucumber.api.java.en.Then;
+import cucumber.api.java.en.And;
 
 import static org.junit.Assert.assertEquals;
 
 public class AssertsProject {
-    private CreateProject createProject;
 
-    public AssertsProject(CreateProject createProject){
-        this.createProject=createProject;
+    private Project project;
+
+    public AssertsProject(Project project) {
+        this.project = project;
     }
-    @Then("^I expect status code (\\d+)$")
-    public void iExpectStatusCode(int statusCodeExpected)  {
-        System.out.println(statusCodeExpected);
-        System.out.println(createProject.getResponse().prettyPrint());
-        assertEquals(statusCodeExpected, createProject.getResponse().statusCode());
+
+    @And("^The project name should be equals? to (.*)$")
+    public void theProjectShouldBeUpdated(String expectedProjectName) {
+        assertEquals(expectedProjectName, project.getResponse().path("name"));
     }
 }

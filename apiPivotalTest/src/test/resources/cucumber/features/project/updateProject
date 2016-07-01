@@ -1,0 +1,17 @@
+Feature:Update project
+
+  Background: set connection to pivotal tracker API REST
+    Given I have set a connection to pivotal tracker API service
+    And I have the next parameters to create a project:
+
+      | name   | project to update |
+      | public | true              |
+
+    And I send a POST request to /projects endpoint
+
+  Scenario: Update name of project
+    Given I have a project created
+    And I have project updated as a new project name
+    When I send a PUT request to /projects endpoint
+    Then I expect the status code 200
+    And The project name should be equal to project updated

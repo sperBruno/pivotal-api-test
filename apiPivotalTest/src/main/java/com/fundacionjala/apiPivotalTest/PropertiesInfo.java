@@ -45,4 +45,18 @@ public class PropertiesInfo {
     public String getToken(){
         return getProperty("token");
     }
+    public String getProxyHost(){
+        return getProperty("proxyHost");
+    }
+    public String getProxyPort(){
+        return getProperty("proxyPort");
+    }
+    public String getProxy(){
+        String proxy=new StringBuilder().append("http://")
+                .append(getProxyHost())
+                .append(":")
+                .append(getProxyPort()).toString();
+        return proxy;
+    }
+
 }

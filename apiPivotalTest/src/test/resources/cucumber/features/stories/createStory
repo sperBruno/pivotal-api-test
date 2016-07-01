@@ -1,0 +1,21 @@
+Feature: Create Story
+
+  Background: set connection to pivotal tracker API REST
+    Given I have set a connection to pivotal tracker API service
+    And I have the next parameters to create a project:
+
+      | name   | project to create stories |
+      | public | true                      |
+
+    And I send a POST request to /projects endpoint
+
+  Scenario: Create a story
+    Given I have a project created
+    And I have the story endpoint
+    And I have the next parameters to create a story:
+
+      | name        | story example          |
+      | description | example of description |
+
+    When I send a story POST request to /stories endpoint
+    Then I expect the status code 200

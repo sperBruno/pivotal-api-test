@@ -1,0 +1,15 @@
+Feature:Delete project
+
+  Background: set connection to pivotal tracker API REST
+    Given I have set a connection to pivotal tracker API service
+    And I have the next parameters to create a project:
+
+      | name   | project to delete |
+      | public | true              |
+
+    And I send a POST request to /projects endpoint
+
+  Scenario: Create project
+    Given I have a project created
+    When I send a project DELETE request to /projects endpoint
+    Then I expect the status code 204

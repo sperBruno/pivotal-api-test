@@ -1,0 +1,18 @@
+Feature: create project
+
+  Background: set connection to pivotal tracker API REST
+    Given I have set a connection to pivotal tracker API service
+
+  Scenario: Get projects
+    Given I have a set of projects
+    When I send a GET request to /projects endpoint
+    Then I expect the status code 200
+
+  Scenario: Create project
+    Given I have the next parameters to create a project:
+
+      | name   | test name |
+      | public | true      |
+
+    When I send a POST request to /projects endpoint
+    Then I expect the status code 200

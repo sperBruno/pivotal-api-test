@@ -1,8 +1,10 @@
 package com.fundacionjala.apiPivotalTest.cucumber.runner;
 
-import cucumber.api.CucumberOptions;
-import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
+
+import cucumber.api.CucumberOptions;
+import cucumber.api.SnippetType;
+import cucumber.api.junit.Cucumber;
 
     @RunWith(Cucumber.class)
     @CucumberOptions(
@@ -11,8 +13,9 @@ import org.junit.runner.RunWith;
                     "html:target/test-report",
                     "json:target/test-report.json",
                     "junit:target/test-report.xml"},
-            features = {"src/test/resources/features/"},
-            glue={"com.fundacionjala.apiPivotalTest.cucumber"}
+            features = {"src/test/resources/cucumber.features/"},
+            glue={"com.fundacionjala.apiPivotalTest.cucumber"},
+            snippets= SnippetType.CAMELCASE
     )
     public class Runner {
 
