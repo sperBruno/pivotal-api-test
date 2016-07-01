@@ -6,8 +6,8 @@ Feature:Delete project
 
       | name   | project to delete |
       | public | true              |
-
-    And I send a POST request to /projects endpoint
+    And I have the /project endpoint
+    And I send a project POST request
 
   Scenario: Create project
     Given I have a project created

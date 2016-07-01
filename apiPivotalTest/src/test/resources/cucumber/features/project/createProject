@@ -13,6 +13,6 @@ Feature: create project
 
       | name   | test name |
       | public | true      |
-
-    When I send a POST request to /projects endpoint
+    And I have the /projects endpoint
+    When I send a project POST request
     Then I expect the status code 200

@@ -1,0 +1,12 @@
+@story
+Feature: Delete Story
+
+  Background: set connection to pivotal tracker API REST
+    Given I have set a connection to pivotal tracker API service
+    And I have a project created
+
+  Scenario: Delete a story
+    Given I have a story created
+    And I have the story id
+    When I send a story DELETE request to /stories endpoint
+    Then I expect the status code 204

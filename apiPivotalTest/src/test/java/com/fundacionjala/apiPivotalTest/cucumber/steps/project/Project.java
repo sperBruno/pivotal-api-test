@@ -12,7 +12,12 @@ public class Project {
     private Response response;
 
     JSONObject parameters;
+    private  String projectEndPoint;
+    @And("^I have the (.*) endpoint$")
+    public void iHaveTheProjectEndpoint(String endPoint) {
+        this.projectEndPoint=endPoint;
 
+    }
     @Given("^I have set a connection to pivotal tracker API service$")
     public void iHaveSetAConnectionToPivotalTrackerAPIService() {
     }
@@ -58,4 +63,11 @@ public class Project {
     }
 
 
+    public String getProjectEndPoint() {
+        return projectEndPoint;
+    }
+
+    public void setProjectEndPoint(String projectEndPoint) {
+        this.projectEndPoint = projectEndPoint;
+    }
 }

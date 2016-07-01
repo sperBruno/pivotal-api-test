@@ -7,8 +7,8 @@ Feature: Create Story
 
       | name   | project to create stories |
       | public | true                      |
-
-    And I send a POST request to /projects endpoint
+    And I have the /project endpoint
+    And I send a project POST request
 
   Scenario: Create a story
     Given I have a project created
@@ -18,5 +18,5 @@ Feature: Create Story
       | name        | story example          |
       | description | example of description |
 
-    When I send a story POST request to /stories endpoint
+    When I send a story POST request
     Then I expect the status code 200
