@@ -18,7 +18,7 @@ Feature: Update Story
 
     And I send a story POST request
     And stored as Story1
-
+  @story
   Scenario: Update a story
     Given I have a project created
     And I have a story created
@@ -29,3 +29,4 @@ Feature: Update Story
 
     When I send a story PUT request to /projects/[Project1.id]/stories/[Story1.id] endpoint
     Then I expect the status code 200
+    And The story name should be equal to story example  updated

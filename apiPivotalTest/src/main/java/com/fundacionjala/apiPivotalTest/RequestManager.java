@@ -1,12 +1,11 @@
 package com.fundacionjala.apiPivotalTest;
 
+import java.util.Map;
+
 import com.jayway.restassured.http.ContentType;
 import com.jayway.restassured.response.Response;
 import com.jayway.restassured.specification.RequestSpecification;
-
 import org.json.simple.JSONObject;
-
-import java.util.Map;
 
 public class RequestManager {
 
@@ -25,7 +24,6 @@ public class RequestManager {
 
     public static Response postRequest(String endpoint, Map<String, Object> parameters) {
         JSONObject parametersJson = new JSONObject(parameters);
-        System.out.println(endpoint);
         return REQUEST.body(parametersJson)
                 .when().post(endpoint)
                 .then().contentType(ContentType.JSON)

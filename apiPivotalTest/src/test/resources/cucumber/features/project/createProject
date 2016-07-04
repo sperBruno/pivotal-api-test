@@ -16,3 +16,4 @@ Feature: create project
     And I have the /projects endpoint
     When I send a project POST request
     Then I expect the status code 200
+    And The project name should be equal to test name

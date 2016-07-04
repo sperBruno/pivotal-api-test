@@ -1,12 +1,11 @@
 package com.fundacionjala.apiPivotalTest.cucumber.steps.project;
 
+import java.util.Map;
+
 import com.fundacionjala.apiPivotalTest.cucumber.steps.ApiResources;
-
-import org.json.simple.JSONObject;
-
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
-import java.util.Map;
+import org.json.simple.JSONObject;
 
 public class Project {
 
@@ -29,7 +28,7 @@ public class Project {
     @Given("^I have the next parameters to create a project:$")
     public void iHaveTheNextParametersToCreateAProject(Map<String, Object> parameters) {
         this.parameters = new JSONObject();
-        this.parameters.put("name", new StringBuilder().append(parameters.get("name")).append(System.currentTimeMillis()));
+        this.parameters.put("name", parameters.get("name").toString());
         this.parameters.put("public", new Boolean(parameters.get("public").toString()));
         api.setParameters(this.parameters);
     }

@@ -1,11 +1,11 @@
 package com.fundacionjala.apiPivotalTest.cucumber.steps;
 
-import com.jayway.restassured.response.Response;
-
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
 import java.util.ArrayList;
 import java.util.Map;
+
+import com.jayway.restassured.response.Response;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 
 import static com.fundacionjala.apiPivotalTest.RequestManager.deleteRequest;
 import static com.fundacionjala.apiPivotalTest.RequestManager.getRequest;
@@ -26,7 +26,7 @@ public class Hooks {
         }
     }
 
-    @After("@project")
+    @After("@project,@story")
     public void afterScenario() {
         response = getRequest("/projects");
         if (response.statusCode() == SUCCESS_STATUS_CODE) {

@@ -14,7 +14,7 @@ public class AssertsProject {
         this.api = api;
     }
 
-    @And("^The project name should be equals? to (.*)$")
+    @And("^The (?:project|story) name should be equals? to (.*)$")
     public void theProjectShouldBeUpdated(String expectedProjectName) {
         assertEquals(expectedProjectName, api.getResponse().path("name"));
     }

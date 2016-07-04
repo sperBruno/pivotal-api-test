@@ -34,7 +34,7 @@ public class Authentication {
         try {
             baseURI = PropertiesInfo.getInstance().getBaseUrl();
             requestSpecification = given().relaxedHTTPSValidation()
-                    //.proxy(PropertiesInfo.getInstance().getProxy())
+                    .proxy(PropertiesInfo.getInstance().getProxy())
                     .header(TOKEN_HEADER, PropertiesInfo.getInstance().getToken())
                     .contentType(CONTENT_TYPE);
             LOGGER.info("The api was initialized");
