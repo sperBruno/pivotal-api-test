@@ -6,10 +6,11 @@ Feature:Delete project
 
       | name   | project to delete |
       | public | true              |
-    And I have the /project endpoint
-    And I send a project POST request
+    And I have the /projects endpoint
+    And I sent a project POST request
+    And stored as Project1
 
   Scenario: Create project
     Given I have a project created
-    When I send a project DELETE request to /projects endpoint
+    When I send a project DELETE request to /projects/[Project1.id] endpoint
     Then I expect the status code 204

@@ -1,11 +1,11 @@
 package com.fundacionjala.apiPivotalTest.cucumber.steps;
 
-import java.util.ArrayList;
-import java.util.Map;
-
 import com.jayway.restassured.response.Response;
+
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import java.util.ArrayList;
+import java.util.Map;
 
 import static com.fundacionjala.apiPivotalTest.RequestManager.deleteRequest;
 import static com.fundacionjala.apiPivotalTest.RequestManager.getRequest;
@@ -16,23 +16,25 @@ public class Hooks {
     public static final int SUCCESS_STATUS_CODE = 200;
 
     private Response response;
-    private static boolean dunit = false;
 
+    private static boolean dunit = false;
 
     @Before("@story")
     public void beforeAll() {
-        if(!dunit) {
+        if (!dunit) {
             dunit = true;
         }
     }
+
     @After("@project")
     public void afterScenario() {
         response = getRequest("/projects");
-        if(response.statusCode()== SUCCESS_STATUS_CODE){
+        if (response.statusCode() == SUCCESS_STATUS_CODE) {
             deleteProjects();
         }
     }
-    public void deleteProjects(){
+
+    public void deleteProjects() {
         ArrayList<Map<String, ?>> jsonAsArrayList = from(response.asString()).get("");
         if (jsonAsArrayList.size() > 0) {
             for (Map<String, ?> object : jsonAsArrayList) {

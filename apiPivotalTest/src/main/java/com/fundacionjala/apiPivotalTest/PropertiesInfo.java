@@ -1,5 +1,7 @@
 package com.fundacionjala.apiPivotalTest;
 
+import org.apache.log4j.Logger;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -7,6 +9,11 @@ import java.util.Properties;
 
 
 public class PropertiesInfo {
+
+    private static final Logger LOGGER = Logger.getLogger(PropertiesInfo.class);
+
+    public static final String PIVOTAL_PROPERTIES = "pivotal.properties";
+
     private static PropertiesInfo instance;
 
     private Properties properties;
@@ -25,13 +32,16 @@ public class PropertiesInfo {
     private void loadProperties() {
         properties = new Properties();
         try {
-            FileInputStream fileInputStream = new FileInputStream("pivotal.properties");
+            FileInputStream fileInputStream = new FileInputStream(PIVOTAL_PROPERTIES);
             properties.load(fileInputStream);
             fileInputStream.close();
+            LOGGER.info("Properties file loaded.");
         }
         catch (FileNotFoundException e) {
+            LOGGER.fatal("Properties file not found. "+e.getMessage());
         }
         catch (IOException e) {
+            LOGGER.fatal("Input output exception; Error loading the properties file. "+e.getMessage());
         }
     }
 

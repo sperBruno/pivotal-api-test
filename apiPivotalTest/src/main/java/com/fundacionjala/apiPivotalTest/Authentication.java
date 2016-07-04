@@ -2,10 +2,14 @@ package com.fundacionjala.apiPivotalTest;
 
 import com.jayway.restassured.specification.RequestSpecification;
 
+import org.apache.log4j.Logger;
+
 import static com.jayway.restassured.RestAssured.baseURI;
 import static com.jayway.restassured.RestAssured.given;
 
 public class Authentication {
+
+    private final static Logger LOGGER = Logger.getLogger(RequestManager.class);
 
     public static final String CONTENT_TYPE = "application/json";
 
@@ -14,6 +18,7 @@ public class Authentication {
     private static Authentication instance;
 
     private RequestSpecification requestSpecification;
+
     private Authentication() {
         initApi();
     }
@@ -26,11 +31,16 @@ public class Authentication {
     }
 
     private void initApi() {
-        baseURI = PropertiesInfo.getInstance().getBaseUrl();
-        requestSpecification = given().relaxedHTTPSValidation()
-                .proxy(PropertiesInfo.getInstance().getProxy())
-                .header(TOKEN_HEADER, PropertiesInfo.getInstance().getToken())
-                .contentType(CONTENT_TYPE);
+        try {
+            baseURI = PropertiesInfo.getInstance().getBaseUrl();
+            requestSpecification = given().relaxedHTTPSValidation()
+                    //.proxy(PropertiesInfo.getInstance().getProxy())
+                    .header(TOKEN_HEADER, PropertiesInfo.getInstance().getToken())
+                    .contentType(CONTENT_TYPE);
+            LOGGER.info("The api was initialized");
+        } catch (Exception e) {
+            LOGGER.fatal("Fatal error initializing the api properties "+e.getMessage());
+        }
     }
 
     public RequestSpecification getRequestSpecification() {

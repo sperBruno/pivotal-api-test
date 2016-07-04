@@ -6,14 +6,14 @@ import static org.junit.Assert.assertEquals;
 
 public class ResponseSteps {
 
-    private RequestSteps requestSteps;
+    private ApiResources apiResources;
 
-    public ResponseSteps(RequestSteps requestSteps) {
-        this.requestSteps = requestSteps;
+    public ResponseSteps(ApiResources apiResources) {
+        this.apiResources = apiResources;
     }
 
     @Then("^I expect the status code (\\d+)$")
     public void iExpectStatusCode(int statusCodeExpected) {
-        assertEquals(statusCodeExpected, requestSteps.getResponse().statusCode());
+        assertEquals(statusCodeExpected, apiResources.getResponse().statusCode());
     }
 }

@@ -1,5 +1,5 @@
 @story
-Feature: Delete Story
+Feature: Update Story
 
   Background: set connection to pivotal tracker API REST
     Given I have set a connection to pivotal tracker API service
@@ -19,8 +19,13 @@ Feature: Delete Story
     And I send a story POST request
     And stored as Story1
 
-  Scenario: Delete a story
+  Scenario: Update a story
     Given I have a project created
     And I have a story created
-    When I send a story DELETE request to /projects/[Project1.id]/stories/[Story1.id] endpoint
-    Then I expect the status code 204
+    And I have the next parameter to update a story:
+
+      | name        | story example  updated         |
+      | description | example of description updated |
+
+    When I send a story PUT request to /projects/[Project1.id]/stories/[Story1.id] endpoint
+    Then I expect the status code 200

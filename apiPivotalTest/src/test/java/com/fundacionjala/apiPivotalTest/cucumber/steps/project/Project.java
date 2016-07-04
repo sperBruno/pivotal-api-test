@@ -1,30 +1,29 @@
 package com.fundacionjala.apiPivotalTest.cucumber.steps.project;
 
-import java.util.Map;
+import com.fundacionjala.apiPivotalTest.cucumber.steps.ApiResources;
 
-import com.jayway.restassured.response.Response;
+import org.json.simple.JSONObject;
+
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
-import org.json.simple.JSONObject;
+import java.util.Map;
 
 public class Project {
 
-    private Response response;
+    private JSONObject parameters;
 
-    JSONObject parameters;
-    private  String projectEndPoint;
-    @And("^I have the (.*) endpoint$")
-    public void iHaveTheProjectEndpoint(String endPoint) {
-        this.projectEndPoint=endPoint;
+    private ApiResources api;
 
+    public Project(ApiResources api) {
+        this.api = api;
     }
+
     @Given("^I have set a connection to pivotal tracker API service$")
     public void iHaveSetAConnectionToPivotalTrackerAPIService() {
     }
 
     @Given("^I have a set of projects$")
     public void iHaveASetOfProjects() {
-
     }
 
     @Given("^I have the next parameters to create a project:$")
@@ -32,42 +31,16 @@ public class Project {
         this.parameters = new JSONObject();
         this.parameters.put("name", new StringBuilder().append(parameters.get("name")).append(System.currentTimeMillis()));
         this.parameters.put("public", new Boolean(parameters.get("public").toString()));
-    }
-
-    public JSONObject getParameters() {
-        return parameters;
+        api.setParameters(this.parameters);
     }
 
     @Given("^I have a project created$")
     public void iHaveAProjectCreated() {
-
-        int idProjectToDelete = response.getBody().path("id");
-        parameters.clear();
-        parameters.put("id", idProjectToDelete);
-
-
     }
 
     @And("^I have (.*) as a new project name$")
-    public void iHaveANewProjectName(String newProjectName) throws Throwable {
-
+    public void iHaveANewProjectName(String newProjectName) {
         parameters.put("name", newProjectName);
-    }
-
-    public void setResponse(Response response) {
-        this.response = response;
-    }
-
-    public Response getResponse() {
-        return response;
-    }
-
-
-    public String getProjectEndPoint() {
-        return projectEndPoint;
-    }
-
-    public void setProjectEndPoint(String projectEndPoint) {
-        this.projectEndPoint = projectEndPoint;
+        api.setParameters(parameters);
     }
 }

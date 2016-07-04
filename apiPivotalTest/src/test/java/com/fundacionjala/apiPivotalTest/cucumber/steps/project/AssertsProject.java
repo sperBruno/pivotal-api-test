@@ -1,19 +1,21 @@
 package com.fundacionjala.apiPivotalTest.cucumber.steps.project;
 
+import com.fundacionjala.apiPivotalTest.cucumber.steps.ApiResources;
+
 import cucumber.api.java.en.And;
 
 import static org.junit.Assert.assertEquals;
 
 public class AssertsProject {
 
-    private Project project;
+    private ApiResources api;
 
-    public AssertsProject(Project project) {
-        this.project = project;
+    public AssertsProject(ApiResources api) {
+        this.api = api;
     }
 
     @And("^The project name should be equals? to (.*)$")
     public void theProjectShouldBeUpdated(String expectedProjectName) {
-        assertEquals(expectedProjectName, project.getResponse().path("name"));
+        assertEquals(expectedProjectName, api.getResponse().path("name"));
     }
 }

@@ -7,12 +7,14 @@ Feature: Create Story
 
       | name   | project to create stories |
       | public | true                      |
-    And I have the /project endpoint
-    And I send a project POST request
+    And I have the /projects endpoint
+    And I sent a project POST request
+    And stored as Project1
 
   Scenario: Create a story
     Given I have a project created
-    And I have the story endpoint
+    And I have the /projects/[Project1.id]/stories endpoint
+
     And I have the next parameters to create a story:
 
       | name        | story example          |
