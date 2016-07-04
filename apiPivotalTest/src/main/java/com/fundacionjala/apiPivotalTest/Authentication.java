@@ -1,17 +1,15 @@
 package com.fundacionjala.apiPivotalTest;
 
+import com.jayway.restassured.builder.RequestSpecBuilder;
 import com.jayway.restassured.specification.RequestSpecification;
 
 import org.apache.log4j.Logger;
 
 import static com.jayway.restassured.RestAssured.baseURI;
-import static com.jayway.restassured.RestAssured.given;
 
 public class Authentication {
 
     private final static Logger LOGGER = Logger.getLogger(RequestManager.class);
-
-    public static final String CONTENT_TYPE = "application/json";
 
     public static final String TOKEN_HEADER = "X-TrackerToken";
 
@@ -33,13 +31,14 @@ public class Authentication {
     private void initApi() {
         try {
             baseURI = PropertiesInfo.getInstance().getBaseUrl();
-            requestSpecification = given().relaxedHTTPSValidation()
-                    .proxy(PropertiesInfo.getInstance().getProxy())
-                    .header(TOKEN_HEADER, PropertiesInfo.getInstance().getToken())
-                    .contentType(CONTENT_TYPE);
+            requestSpecification = new RequestSpecBuilder()
+                    .setRelaxedHTTPSValidation()
+                    .setProxy(PropertiesInfo.getInstance().getProxy())
+                    .addHeader(TOKEN_HEADER, PropertiesInfo.getInstance().getToken())
+                    .build();
             LOGGER.info("The api was initialized");
         } catch (Exception e) {
-            LOGGER.fatal("Fatal error initializing the api properties "+e.getMessage());
+            LOGGER.fatal("Fatal error initializing the api properties " + e.getMessage());
         }
     }
 

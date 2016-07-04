@@ -7,13 +7,13 @@ Feature:Update project
       | name   | project to update |
       | public | true              |
     And I have the /projects endpoint
-    And I sent a project POST request
+    And I sent a POST request
     And stored as Project1
 
   @project
   Scenario: Update name of project
     Given I have a project created
     And I have project updated as a new project name
-    When I send a project PUT request to /projects/[Project1.id] endpoint
+    When I send a PUT request to /projects/[Project1.id] endpoint
     Then I expect the status code 200
     And The project name should be equal to project updated

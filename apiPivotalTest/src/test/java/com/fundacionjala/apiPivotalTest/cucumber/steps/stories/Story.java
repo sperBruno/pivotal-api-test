@@ -3,8 +3,10 @@ package com.fundacionjala.apiPivotalTest.cucumber.steps.stories;
 import java.util.Map;
 
 import com.fundacionjala.apiPivotalTest.cucumber.steps.ApiResources;
-import cucumber.api.java.en.And;
+
 import org.json.simple.JSONObject;
+
+import cucumber.api.java.en.And;
 
 public class Story {
 
@@ -24,10 +26,6 @@ public class Story {
         api.setParameters(this.parameters);
     }
 
-    @And("^I store the story (.*) endpoint$")
-    public void iHaveTheStoriesEndpoint(String endpoint) {
-        api.setEndPoint(api.mapEndpoint(endpoint));
-    }
 
     @And("^I have a story created$")
     public void iHaveAStoryCreated() {

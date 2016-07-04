@@ -7,6 +7,7 @@ Feature: create project
     Given I have a set of projects
     When I send a GET request to /projects endpoint
     Then I expect the status code 200
+
   @project
   Scenario: Create project
     Given I have the next parameters to create a project:
@@ -14,6 +15,6 @@ Feature: create project
       | name   | test name |
       | public | true      |
     And I have the /projects endpoint
-    When I send a project POST request
+    When I send a POST request
     Then I expect the status code 200
     And The project name should be equal to test name

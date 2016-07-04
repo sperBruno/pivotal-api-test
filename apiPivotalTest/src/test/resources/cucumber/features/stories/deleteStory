@@ -8,7 +8,7 @@ Feature: Delete Story
       | name   | project to create stories |
       | public | true                      |
     And I have the /projects endpoint
-    And I sent a project POST request
+    And I sent a POST request
     And stored as Project1
     And I have the /projects/[Project1.id]/stories endpoint
     And I have the next parameter to create a story:
@@ -16,11 +16,11 @@ Feature: Delete Story
       | name        | story example          |
       | description | example of description |
 
-    And I send a story POST request
+    And I send a POST request
     And stored as Story1
 
   Scenario: Delete a story
     Given I have a project created
     And I have a story created
-    When I send a story DELETE request to /projects/[Project1.id]/stories/[Story1.id] endpoint
+    When I send a DELETE request to /projects/[Project1.id]/stories/[Story1.id] endpoint
     Then I expect the status code 204
