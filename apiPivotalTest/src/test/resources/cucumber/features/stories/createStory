@@ -1,9 +1,8 @@
-@story
 Feature: Create Story
 
   Background: set connection to pivotal tracker API REST
     Given I have set a connection to pivotal tracker API service
-    And I have the next parameters to create a project:
+    And I have the next parameters:
 
       | name   | project to create stories |
       | public | true                      |
@@ -15,7 +14,7 @@ Feature: Create Story
   Scenario: Create a story
     Given I have a project created
     And I have the /projects/[Project1.id]/stories endpoint
-    And I have the next parameters to create a story:
+    And I have the next parameters:
 
       | name        | story example          |
       | description | example of description |

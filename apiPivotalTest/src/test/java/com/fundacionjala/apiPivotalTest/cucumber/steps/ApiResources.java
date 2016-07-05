@@ -6,8 +6,6 @@ import java.util.Map;
 import com.fundacionjala.apiPivotalTest.RequestManager;
 import com.jayway.restassured.response.Response;
 
-import org.json.simple.JSONObject;
-
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -20,7 +18,7 @@ public class ApiResources {
 
     private Response response;
 
-    private JSONObject parameters;
+    private Map<String, Object> parameters;
 
     private Map<String, Response> listResponses;
 
@@ -47,14 +45,12 @@ public class ApiResources {
 
     @When("^I send a DELETE request to (.*?) endpoint$")
     public void iSendADELETERequest(String endPoint) {
-        this.endPoint = mapEndpoint(endPoint, listResponses);
-        response = RequestManager.deleteRequest(this.endPoint);
+        response = RequestManager.deleteRequest(mapEndpoint(endPoint, listResponses));
     }
 
     @When("^I send a PUT request to (.*) endpoint$")
     public void iSendAPUTRequest(String endPoint) {
-        this.endPoint = mapEndpoint(endPoint, listResponses);
-        response = RequestManager.putRequest(this.endPoint, parameters);
+        response = RequestManager.putRequest(mapEndpoint(endPoint, listResponses), parameters);
     }
 
     @And("^stored as (.*)")
@@ -71,8 +67,12 @@ public class ApiResources {
         return response;
     }
 
-    public void setParameters(JSONObject parameters) {
+    public void setParameters(Map<String, Object> parameters) {
         this.parameters = parameters;
+    }
+
+    public String getEndPoint() {
+        return endPoint;
     }
 
 }

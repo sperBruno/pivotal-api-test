@@ -6,8 +6,6 @@ import com.jayway.restassured.http.ContentType;
 import com.jayway.restassured.response.Response;
 import com.jayway.restassured.specification.RequestSpecification;
 
-import org.json.simple.JSONObject;
-
 import static com.jayway.restassured.RestAssured.given;
 
 public class RequestManager {
@@ -18,7 +16,6 @@ public class RequestManager {
     }
 
     public static Response getRequest(String endpoint) {
-
         return given().spec(REQUEST)
                 .when().get(endpoint)
                 .then().contentType(ContentType.JSON)
@@ -27,16 +24,14 @@ public class RequestManager {
     }
 
     public static Response postRequest(String endpoint, Map<String, Object> parameters) {
-        JSONObject parametersJson = new JSONObject(parameters);
-        return given().spec(REQUEST).params(parametersJson)
+        return given().spec(REQUEST).params(parameters)
                 .when().post(endpoint)
                 .then().contentType(ContentType.JSON)
                 .extract().response();
     }
 
     public static Response putRequest(String endpoint, Map<String, Object> parameters) {
-        JSONObject parametersJson = new JSONObject(parameters);
-        return given().spec(REQUEST).params(parametersJson)
+        return given().spec(REQUEST).params(parameters)
                 .when().put(endpoint)
                 .then().contentType(ContentType.JSON)
                 .extract().response();

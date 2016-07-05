@@ -1,9 +1,8 @@
-@story
 Feature: Delete Story
 
   Background: set connection to pivotal tracker API REST
     Given I have set a connection to pivotal tracker API service
-    And I have the next parameters to create a project:
+    And I have the next parameters:
 
       | name   | project to create stories |
       | public | true                      |
@@ -11,7 +10,7 @@ Feature: Delete Story
     And I sent a POST request
     And stored as Project1
     And I have the /projects/[Project1.id]/stories endpoint
-    And I have the next parameter to create a story:
+    And I have the next parameters:
 
       | name        | story example          |
       | description | example of description |
@@ -19,6 +18,7 @@ Feature: Delete Story
     And I send a POST request
     And stored as Story1
 
+  @story
   Scenario: Delete a story
     Given I have a project created
     And I have a story created

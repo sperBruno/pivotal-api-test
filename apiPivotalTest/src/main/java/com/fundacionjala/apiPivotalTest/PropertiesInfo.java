@@ -30,7 +30,7 @@ public class PropertiesInfo {
 
     public static PropertiesInfo getInstance() {
         if (instance == null) {
-            return new PropertiesInfo();
+            instance = new PropertiesInfo();
         }
         return instance;
     }

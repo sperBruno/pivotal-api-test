@@ -10,7 +10,7 @@ Feature: create project
 
   @project
   Scenario: Create project
-    Given I have the next parameters to create a project:
+    Given I have the next parameters:
 
       | name   | test name |
       | public | true      |

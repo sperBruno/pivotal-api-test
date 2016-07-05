@@ -30,4 +30,13 @@ public class Mapper {
         matches.appendTail(newEndPoint);
         return newEndPoint.toString().replaceAll("[\\[\\]]", "");
     }
+
+    public static String mapUrlToDeleteProject(String endPoint) {
+        String projectUrlPart = "";
+        Matcher matches = Pattern.compile("^(\\/.*?\\/.*?\\/)").matcher(endPoint);
+        while (matches.find()) {
+            projectUrlPart = matches.group();
+        }
+        return projectUrlPart;
+    }
 }

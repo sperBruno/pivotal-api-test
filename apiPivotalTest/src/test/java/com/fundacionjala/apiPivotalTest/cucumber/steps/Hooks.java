@@ -1,46 +1,41 @@
 package com.fundacionjala.apiPivotalTest.cucumber.steps;
 
-import java.util.ArrayList;
-import java.util.Map;
-
-import com.jayway.restassured.response.Response;
+import com.fundacionjala.apiPivotalTest.Mapper;
 
 import cucumber.api.java.After;
-import cucumber.api.java.Before;
 
 import static com.fundacionjala.apiPivotalTest.RequestManager.deleteRequest;
-import static com.fundacionjala.apiPivotalTest.RequestManager.getRequest;
 import static com.jayway.restassured.path.json.JsonPath.from;
 
 public class Hooks {
 
-    public static final int SUCCESS_STATUS_CODE = 200;
+    private static final int SUCCESS_STATUS_CODE = 200;
 
-    private Response response;
+    private static final String PROJECTS_ENDPOINT = "/projects/";
 
-    private static boolean dunit = false;
+    private static final String PROJECT_ID = "id";
 
-    @Before("@story")
-    public void beforeAll() {
-        if (!dunit) {
-            dunit = true;
+    private static final int DELETE_STATUS_CODE = 204;
+
+    ApiResources api;
+
+    public Hooks(ApiResources api) {
+        this.api = api;
+    }
+
+    @After("@project")
+    public void afterProjectScenario() {
+        if (api.getResponse().statusCode() == SUCCESS_STATUS_CODE) {
+            deleteRequest(PROJECTS_ENDPOINT + from(api.getResponse().asString()).get(PROJECT_ID).toString());
         }
     }
 
-    @After("@project,@story")
-    public void afterScenario() {
-        response = getRequest("/projects");
-        if (response.statusCode() == SUCCESS_STATUS_CODE) {
-            deleteProjects();
+    @After("@story")
+    public void afterStoryScenario() {
+        if (api.getResponse().statusCode() == SUCCESS_STATUS_CODE || api.getResponse().statusCode() == DELETE_STATUS_CODE) {
+            deleteRequest(Mapper.mapUrlToDeleteProject(api.getEndPoint()));
         }
     }
 
-    public void deleteProjects() {
-        ArrayList<Map<String, ?>> jsonAsArrayList = from(response.asString()).get("");
-        if (jsonAsArrayList.size() > 0) {
-            for (Map<String, ?> object : jsonAsArrayList) {
-                deleteRequest("/projects/" + object.get("id"));
-            }
-        }
-    }
+
 }

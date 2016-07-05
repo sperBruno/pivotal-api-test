@@ -2,7 +2,7 @@ Feature:Update project
 
   Background: set connection to pivotal tracker API REST
     Given I have set a connection to pivotal tracker API service
-    And I have the next parameters to create a project:
+    And I have the next parameters:
 
       | name   | project to update |
       | public | true              |

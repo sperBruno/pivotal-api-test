@@ -27,12 +27,9 @@ public class Project {
     public void iHaveASetOfProjects() {
     }
 
-    @Given("^I have the next parameters to create a project:$")
+    @Given("^I have the next parameters:$")
     public void iHaveTheNextParametersToCreateAProject(Map<String, Object> parameters) {
-        this.parameters = new JSONObject();
-        this.parameters.put("name", parameters.get("name").toString());
-        this.parameters.put("public", new Boolean(parameters.get("public").toString()));
-        api.setParameters(this.parameters);
+        api.setParameters(parameters);
     }
 
     @Given("^I have a project created$")
