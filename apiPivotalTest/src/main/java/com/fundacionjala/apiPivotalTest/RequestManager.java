@@ -17,7 +17,6 @@ public class RequestManager {
     public static Response getRequest(String endpoint) {
         return given().spec(REQUEST)
                 .when().get(endpoint);
-
     }
 
     public static Response postRequest(String endpoint, Map<String, Object> parameters) {
