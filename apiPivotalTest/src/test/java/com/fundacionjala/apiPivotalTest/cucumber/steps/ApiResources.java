@@ -7,6 +7,7 @@ import com.fundacionjala.apiPivotalTest.RequestManager;
 import com.jayway.restassured.response.Response;
 
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
@@ -43,14 +44,14 @@ public class ApiResources {
         response = RequestManager.postRequest(endPoint, parameters);
     }
 
-    @When("^I send a DELETE request to (.*?) endpoint$")
-    public void iSendADELETERequest(String endPoint) {
-        response = RequestManager.deleteRequest(mapEndpoint(endPoint, listResponses));
+    @When("^I send a DELETE request$")
+    public void iSendADELETERequest() {
+        response = RequestManager.deleteRequest(endPoint);
     }
 
-    @When("^I send a PUT request to (.*) endpoint$")
-    public void iSendAPUTRequest(String endPoint) {
-        response = RequestManager.putRequest(mapEndpoint(endPoint, listResponses), parameters);
+    @When("^I send a PUT request$")
+    public void iSendAPUTRequest() {
+        response = RequestManager.putRequest(endPoint, parameters);
     }
 
     @And("^stored as (.*)")
@@ -63,13 +64,15 @@ public class ApiResources {
         assertEquals(statusCodeExpected, response.statusCode());
     }
 
+    @Given("^I have the next parameters:$")
+    public void iHaveTheNextParameters(Map<String, Object> parameters) {
+        this.parameters = parameters;
+    }
+
     public Response getResponse() {
         return response;
     }
 
-    public void setParameters(Map<String, Object> parameters) {
-        this.parameters = parameters;
-    }
 
     public String getEndPoint() {
         return endPoint;

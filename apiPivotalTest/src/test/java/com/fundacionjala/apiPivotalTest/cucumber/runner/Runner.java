@@ -13,7 +13,7 @@ import cucumber.api.junit.Cucumber;
                 "html:target/test-report",
                 "json:target/test-report.json",
                 "junit:target/test-report.xml"},
-        features = {"src/test/resources/cucumber.features/"},
+        features = {"src/test/resources/cucumber/"},
         glue = {"com.fundacionjala.apiPivotalTest.cucumber"},
         snippets = SnippetType.CAMELCASE
 )
