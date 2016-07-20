@@ -1,12 +1,18 @@
-package com.fundacionjala.apiPivotalTest;
+package org.fundacionjala.apiPivotalTest.api;
+
+import java.util.Map;
 
 import com.jayway.restassured.response.Response;
 import com.jayway.restassured.specification.RequestSpecification;
 
-import java.util.Map;
-
 import static com.jayway.restassured.RestAssured.given;
 
+/**
+ * @author Henrry Salinas.
+ *
+ * The purpose of this class is to provide methods that manage the API REST
+ * requests like GET, POST, PUT, and DELETE.
+ */
 public class RequestManager {
 
     private static RequestSpecification REQUEST = Authentication.getInstance().getRequestSpecification();
