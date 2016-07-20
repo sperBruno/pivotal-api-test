@@ -1,4 +1,4 @@
-package org.fundacionjala.apiPivotalTest.api;
+package org.fundacionjala.api.api;
 
 import java.util.HashMap;
 import java.util.Map;

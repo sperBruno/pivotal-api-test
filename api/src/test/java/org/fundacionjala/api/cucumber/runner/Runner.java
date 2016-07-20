@@ -1,4 +1,4 @@
-package org.fundacionjala.apiPivotalTest.cucumber.runner;
+package org.fundacionjala.api.cucumber.runner;
 
 import org.junit.runner.RunWith;
 
@@ -19,7 +19,7 @@ import cucumber.api.junit.Cucumber;
                 "json:target/test-report.json",
                 "junit:target/test-report.xml"},
         features = {"src/test/resources/"},
-        glue = {"org.fundacionjala.apiPivotalTest.cucumber"},
+        glue = {"org.fundacionjala.api.cucumber"},
         snippets = SnippetType.CAMELCASE
 )
 public class Runner {

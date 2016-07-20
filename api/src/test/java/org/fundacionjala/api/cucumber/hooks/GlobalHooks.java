@@ -1,11 +1,11 @@
-package org.fundacionjala.apiPivotalTest.cucumber.hooks;
+package org.fundacionjala.api.cucumber.hooks;
 
 import org.apache.commons.lang3.StringUtils;
-import org.fundacionjala.apiPivotalTest.util.PropertiesInfo;
+import org.fundacionjala.api.util.PropertiesInfo;
 
 import cucumber.api.java.Before;
 
-import static org.fundacionjala.apiPivotalTest.util.CommonMethods.deleteAllProjects;
+import static org.fundacionjala.api.util.CommonMethods.deleteAllProjects;
 
 
 /**

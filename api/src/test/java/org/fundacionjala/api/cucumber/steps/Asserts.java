@@ -1,4 +1,4 @@
-package org.fundacionjala.apiPivotalTest.cucumber.steps;
+package org.fundacionjala.api.cucumber.steps;
 
 import cucumber.api.java.en.And;
 

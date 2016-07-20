@@ -1,15 +1,15 @@
-package org.fundacionjala.apiPivotalTest.cucumber.steps;
+package org.fundacionjala.api.cucumber.steps;
 
-import org.fundacionjala.apiPivotalTest.api.Mapper;
+import org.fundacionjala.api.api.Mapper;
 
 import cucumber.api.java.After;
 import java.util.ArrayList;
 import java.util.Map;
 
 import static com.jayway.restassured.path.json.JsonPath.from;
-import static org.fundacionjala.apiPivotalTest.api.RequestManager.deleteRequest;
-import static org.fundacionjala.apiPivotalTest.util.Constants.DELETE_STATUS_CODE;
-import static org.fundacionjala.apiPivotalTest.util.Constants.SUCCESS_STATUS_CODE;
+import static org.fundacionjala.api.api.RequestManager.deleteRequest;
+import static org.fundacionjala.api.util.Constants.DELETE_STATUS_CODE;
+import static org.fundacionjala.api.util.Constants.SUCCESS_STATUS_CODE;
 
 public class Hooks {
 

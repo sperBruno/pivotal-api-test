@@ -1,4 +1,4 @@
-package org.fundacionjala.apiPivotalTest.cucumber.steps;
+package org.fundacionjala.api.cucumber.steps;
 
 import java.util.Map;
 
@@ -9,12 +9,12 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-import static org.fundacionjala.apiPivotalTest.api.Mapper.addResponse;
-import static org.fundacionjala.apiPivotalTest.api.Mapper.mapEndpoint;
-import static org.fundacionjala.apiPivotalTest.api.RequestManager.deleteRequest;
-import static org.fundacionjala.apiPivotalTest.api.RequestManager.getRequest;
-import static org.fundacionjala.apiPivotalTest.api.RequestManager.postRequest;
-import static org.fundacionjala.apiPivotalTest.api.RequestManager.putRequest;
+import static org.fundacionjala.api.api.Mapper.addResponse;
+import static org.fundacionjala.api.api.Mapper.mapEndpoint;
+import static org.fundacionjala.api.api.RequestManager.deleteRequest;
+import static org.fundacionjala.api.api.RequestManager.getRequest;
+import static org.fundacionjala.api.api.RequestManager.postRequest;
+import static org.fundacionjala.api.api.RequestManager.putRequest;
 import static org.junit.Assert.assertEquals;
 
 /**

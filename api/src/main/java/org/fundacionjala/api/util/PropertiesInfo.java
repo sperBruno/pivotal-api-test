@@ -1,4 +1,4 @@
-package org.fundacionjala.apiPivotalTest.util;
+package org.fundacionjala.api.util;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

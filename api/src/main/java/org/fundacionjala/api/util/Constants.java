@@ -1,4 +1,4 @@
-package org.fundacionjala.apiPivotalTest.util;
+package org.fundacionjala.api.util;
 
 /**
  * This class will let us to use constants variables through the classes.

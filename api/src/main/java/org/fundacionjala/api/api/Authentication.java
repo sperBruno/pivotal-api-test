@@ -1,9 +1,9 @@
-package org.fundacionjala.apiPivotalTest.api;
+package org.fundacionjala.api.api;
 
 import com.jayway.restassured.builder.RequestSpecBuilder;
 import com.jayway.restassured.specification.RequestSpecification;
 
-import org.fundacionjala.apiPivotalTest.util.PropertiesInfo;
+import org.fundacionjala.api.util.PropertiesInfo;
 
 import static com.jayway.restassured.RestAssured.baseURI;
 

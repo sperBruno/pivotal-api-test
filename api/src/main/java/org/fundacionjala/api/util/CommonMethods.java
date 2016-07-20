@@ -1,13 +1,13 @@
-package org.fundacionjala.apiPivotalTest.util;
+package org.fundacionjala.api.util;
 
 import java.util.ArrayList;
 import java.util.Map;
 
 import static com.jayway.restassured.path.json.JsonPath.from;
-import static org.fundacionjala.apiPivotalTest.api.RequestManager.deleteRequest;
-import static org.fundacionjala.apiPivotalTest.api.RequestManager.getRequest;
-import static org.fundacionjala.apiPivotalTest.util.Constants.PROJECTS_ENDPOINT;
-import static org.fundacionjala.apiPivotalTest.util.Constants.PROJECT_ID;
+import static org.fundacionjala.api.api.RequestManager.deleteRequest;
+import static org.fundacionjala.api.api.RequestManager.getRequest;
+import static org.fundacionjala.api.util.Constants.PROJECTS_ENDPOINT;
+import static org.fundacionjala.api.util.Constants.PROJECT_ID;
 
 /**
  * Created by mijhailvillarroel.
