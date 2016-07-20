@@ -27,11 +27,12 @@ public class Authentication {
     }
 
     private void initApi() {
+ //       System.setProperty("java.net.useSystemProxies", "true");
         baseURI = PropertiesInfo.getInstance().getUrlApi();
         if (PropertiesInfo.getInstance().getProxy() != null) {
             requestSpecification = new RequestSpecBuilder()
                     .setRelaxedHTTPSValidation()
-                    .setProxy(PropertiesInfo.getInstance().getProxy())
+                    //.setProxy(PropertiesInfo.getInstance().getProxy())
                     .addHeader(TOKEN_HEADER, PropertiesInfo.getInstance().getApiToken())
                     .build();
         } else {
@@ -40,6 +41,27 @@ public class Authentication {
                     .addHeader(TOKEN_HEADER, PropertiesInfo.getInstance().getApiToken())
                     .build();
         }
+
+//        try {
+//            ProxySelector.getDefault().select(new URI(PropertiesInfo.getInstance().getUrlApi())).forEach((item)->{
+//                if(item.address()==null){
+//                    requestSpecification = new RequestSpecBuilder()
+//                            .setRelaxedHTTPSValidation()
+//                            .addHeader(TOKEN_HEADER, PropertiesInfo.getInstance().getApiToken())
+//                            .build();
+//                }else{
+//                    requestSpecification = new RequestSpecBuilder()
+//                            .setRelaxedHTTPSValidation()
+//                            .setProxy(PropertiesInfo.getInstance().getProxy())
+//                            .addHeader(TOKEN_HEADER, PropertiesInfo.getInstance().getApiToken())
+//                            .build();
+//                }
+//
+//            });
+//
+//        } catch (URISyntaxException e) {
+//            e.printStackTrace();
+//        }
     }
 
     public RequestSpecification getRequestSpecification() {

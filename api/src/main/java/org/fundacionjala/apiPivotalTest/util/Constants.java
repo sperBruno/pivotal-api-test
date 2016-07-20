@@ -43,7 +43,7 @@ public final class Constants {
     public static final String REMOTE_BROWSER_VERSION = "remoteBrowserVersion";
 
     public static final String REMOTE_PLATFORM = "remotePlatform";
-    
+
     private Constants() {
     }
 }

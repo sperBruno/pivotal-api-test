@@ -10,7 +10,7 @@ import static org.fundacionjala.apiPivotalTest.util.Constants.PROJECTS_ENDPOINT;
 import static org.fundacionjala.apiPivotalTest.util.Constants.PROJECT_ID;
 
 /**
- * Created by mijhailvillarroel on 7/14/2016.
+ * Created by mijhailvillarroel.
  */
 public final class CommonMethods {
 
