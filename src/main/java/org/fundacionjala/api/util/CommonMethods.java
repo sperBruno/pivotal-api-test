@@ -25,4 +25,9 @@ public final class CommonMethods {
             }
         }
     }
+
+    public static void quitProgram(String message) {
+        System.err.println(message);
+        Runtime.getRuntime().exit(1);
+    }
 }
