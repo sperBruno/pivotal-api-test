@@ -1,13 +1,12 @@
 package org.fundacionjala.api.cucumber.steps;
 
-import java.util.Map;
-
 import com.jayway.restassured.response.Response;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import java.util.Map;
 
 import static org.fundacionjala.api.api.Mapper.addResponse;
 import static org.fundacionjala.api.api.Mapper.mapEndpoint;
@@ -71,4 +70,8 @@ public class ApiResources {
         return endPoint;
     }
 
+    @And("^I deserialize the response to (.*?) object")
+    public void iDeserializeTheResponseToEpic() throws Throwable {
+
+    }
 }
