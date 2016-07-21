@@ -70,8 +70,4 @@ public class ApiResources {
         return endPoint;
     }
 
-    @And("^I deserialize the response to (.*?) object")
-    public void iDeserializeTheResponseToEpic() throws Throwable {
-
-    }
 }
