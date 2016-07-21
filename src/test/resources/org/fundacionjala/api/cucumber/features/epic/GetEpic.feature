@@ -7,7 +7,7 @@ Feature: Get Epic
     Given I send a POST request to /projects
 
       | name   | project for get epics |
-      | public | true              |
+      | public | true                  |
 
     And stored as Project1
     And I send a POST request to /projects/[Project1.id]/epics
@@ -21,10 +21,10 @@ Feature: Get Epic
     Then I expect the status code 200
 
 
-    @smoke_test @epic
-    Scenario: Get epic by id
-      Given I send a GET request to /projects/[Project1.id]/epics/[Epic1.id] endpoint
-      Then I expect the status code 200
+  @smoke_test @epic
+  Scenario: Get epic by id
+    Given I send a GET request to /projects/[Project1.id]/epics/[Epic1.id] endpoint
+    Then I expect the status code 200
 
 
 #    @functional_test

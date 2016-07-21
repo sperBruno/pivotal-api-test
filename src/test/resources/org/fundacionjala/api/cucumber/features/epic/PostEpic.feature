@@ -6,8 +6,8 @@ Feature: Post Epic
   Background: Create a project
     Given I send a POST request to /projects
 
-      | name   | project for epic test |
-      | public | true                  |
+      | name   | project for create epics |
+      | public | true                     |
 
     And stored as Project1
 

@@ -6,8 +6,8 @@ Feature: Update Epic
   Background: Create a project
     Given I send a POST request to /projects
 
-      | name   | project for get epics |
-      | public | true              |
+      | name   | project for update epics |
+      | public | true                     |
 
     And stored as Project1
     And I send a POST request to /projects/[Project1.id]/epics

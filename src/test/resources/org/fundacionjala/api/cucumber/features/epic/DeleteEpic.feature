@@ -6,16 +6,16 @@ Feature: Delete Epics
   Background: Create a project
     Given I send a POST request to /projects
 
-      | name   | project for get epics |
-      | public | true              |
+      | name   | project for delete epics |
+      | public | true                     |
 
     And stored as Project1
     And I send a POST request to /projects/[Project1.id]/epics
 
-      | name | epic example hs11h |
+      | name | epic to delete |
     And stored as Epic1
 
-  @smoke_test
+  @smoke_test @epic
   Scenario: delete a  epic
     Given I have the /projects/[Project1.id]/epics/[Epic1.id] endpoint
     When I send a DELETE request
