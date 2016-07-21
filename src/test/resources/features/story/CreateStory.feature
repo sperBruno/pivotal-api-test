@@ -6,7 +6,7 @@ Feature: Create new story in project from pivotal tracker
       | public | true        |
     And stored as Project1
 
-  @deleteProjectStory
+  @deleteProject
   Scenario: Create new story
     Given I send a POST request to /projects/[Project1.id]/stories with:
       | name     | newStory |
