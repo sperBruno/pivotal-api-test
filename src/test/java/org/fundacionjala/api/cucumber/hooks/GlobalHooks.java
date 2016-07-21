@@ -7,6 +7,7 @@ import cucumber.api.java.Before;
 
 import static org.fundacionjala.api.api.RequestManager.getRequest;
 import static org.fundacionjala.api.util.CommonMethods.deleteAllProjects;
+import static org.fundacionjala.api.util.CommonMethods.deleteAllWorkspaces;
 import static org.fundacionjala.api.util.CommonMethods.quitProgram;
 import static org.fundacionjala.api.util.Constants.PROJECTS_ENDPOINT;
 import static org.fundacionjala.api.util.Constants.SUCCESS_STATUS_CODE;
@@ -33,6 +34,7 @@ public class GlobalHooks {
             Runtime.getRuntime().addShutdownHook(new Thread() {
                 public void run() {
                     deleteAllProjects();
+                    deleteAllWorkspaces ();
                 }
             });
             if (StringUtils.isEmpty(PROPERTIES_INFO.getEmail()) || StringUtils.isEmpty(PROPERTIES_INFO.getApiToken()) || StringUtils.isEmpty(PROPERTIES_INFO.getPassword())) {
