@@ -3,7 +3,6 @@ package org.fundacionjala.api.cucumber.steps;
 import java.util.Map;
 
 import com.jayway.restassured.response.Response;
-
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -11,10 +10,7 @@ import cucumber.api.java.en.When;
 
 import static org.fundacionjala.api.api.Mapper.addResponse;
 import static org.fundacionjala.api.api.Mapper.mapEndpoint;
-import static org.fundacionjala.api.api.RequestManager.deleteRequest;
-import static org.fundacionjala.api.api.RequestManager.getRequest;
-import static org.fundacionjala.api.api.RequestManager.postRequest;
-import static org.fundacionjala.api.api.RequestManager.putRequest;
+import static org.fundacionjala.api.api.RequestManager.*;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -27,6 +23,8 @@ public class ApiResources {
     private Response response;
 
     private String endPoint;
+
+    private Map<String, Object> parameters;
 
     @Given("^I have the (.*) endpoint$")
     public void iHaveTheEndpoint(String endPoint) {
@@ -69,6 +67,10 @@ public class ApiResources {
 
     public String getEndPoint() {
         return endPoint;
+    }
+
+    public Map<String, Object> getParameters() {
+        return parameters;
     }
 
 }
