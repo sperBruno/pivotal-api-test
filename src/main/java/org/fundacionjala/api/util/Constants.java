@@ -50,7 +50,13 @@ public final class Constants {
 
     public static final String REMOTE_PLATFORM = "remotePlatform";
 
+
     public static final Map<String, Response> RESPONSE_VALUES = new HashMap<>();
+
+    public static final String WORKSPACES_ENDPOINT = "/my/workspaces/";
+
+    public static final String WORKSPACE_ID = "id";
+
 
     private Constants() {
     }
