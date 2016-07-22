@@ -12,7 +12,7 @@ public final class Constants {
 
     public static final String PROJECTS_ENDPOINT = "/projects/";
 
-    public static final String PROJECT_ID = "id";
+    public static final String PROJECT_ID = "ID";
 
     public static final String CONFIG_PROPERTIES = "pivotal.properties";
 

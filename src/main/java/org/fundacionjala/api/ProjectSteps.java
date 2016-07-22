@@ -4,8 +4,8 @@ package org.fundacionjala.api;
  * Created by mijhailvillarroel on 7/21/2016.
  */
 public enum ProjectSteps {
-    id,
-    kind,
+    ID,
+    KIND,
     NAME,
     VERSION,
     ITERATION_LENGTH,
