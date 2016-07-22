@@ -14,8 +14,8 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * @author Henrry Salinas.
- *
- * This class provide the basic step definitions to work with api rest requests
+ *         <p>
+ *         This class provide the basic step definitions to work with api rest requests
  */
 public class ApiResources {
 

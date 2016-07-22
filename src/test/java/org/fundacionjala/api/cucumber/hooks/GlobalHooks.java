@@ -1,5 +1,6 @@
 package org.fundacionjala.api.cucumber.hooks;
 
+import cucumber.api.java.Before;
 import org.apache.commons.lang3.StringUtils;
 import org.fundacionjala.api.util.PropertiesInfo;
 
