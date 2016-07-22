@@ -1,8 +1,14 @@
 package org.fundacionjala.api.util;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import com.jayway.restassured.response.Response;
+
 /**
  * This class will let us to use constants variables through the classes.
- * Created by brunobarrios on 7/13/2016.
+ *
+ * @author Bruno Barrios
  */
 public final class Constants {
 
@@ -43,6 +49,8 @@ public final class Constants {
     public static final String REMOTE_BROWSER_VERSION = "remoteBrowserVersion";
 
     public static final String REMOTE_PLATFORM = "remotePlatform";
+
+    public static final Map<String, Response> RESPONSE_VALUES = new HashMap<>();
 
     private Constants() {
     }

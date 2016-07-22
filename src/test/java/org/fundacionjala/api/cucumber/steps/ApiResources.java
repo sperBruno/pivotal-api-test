@@ -3,7 +3,6 @@ package org.fundacionjala.api.cucumber.steps;
 import java.util.Map;
 
 import com.jayway.restassured.response.Response;
-
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -19,8 +18,8 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * @author Henrry Salinas.
- *
- * This class provide the basic step definitions to work with api rest requests
+ *         <p>
+ *         This class provide the basic step definitions to work with api rest requests
  */
 public class ApiResources {
 
