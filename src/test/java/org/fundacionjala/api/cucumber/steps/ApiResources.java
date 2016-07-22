@@ -1,12 +1,11 @@
 package org.fundacionjala.api.cucumber.steps;
 
-import java.util.Map;
-
 import com.jayway.restassured.response.Response;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import java.util.Map;
 
 import static org.fundacionjala.api.api.Mapper.addResponse;
 import static org.fundacionjala.api.api.Mapper.mapEndpoint;
@@ -24,7 +23,7 @@ public class ApiResources {
 
     private String endPoint;
 
-    private Map<String, Object> parameters;
+    private Map <String , Object> MapParameter;
 
     @Given("^I have the (.*) endpoint$")
     public void iHaveTheEndpoint(String endPoint) {
@@ -38,6 +37,7 @@ public class ApiResources {
 
     @When("^I sen(?:d|t) a POST request to (.*)$")
     public void iSendAPOSTRequestWith(String endPoint, Map<String, Object> parameters) {
+        MapParameter = parameters;
         response = postRequest(this.endPoint = mapEndpoint(endPoint), parameters);
     }
 
