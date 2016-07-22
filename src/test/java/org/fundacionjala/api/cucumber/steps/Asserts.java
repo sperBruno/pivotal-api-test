@@ -1,21 +1,26 @@
 package org.fundacionjala.api.cucumber.steps;
 
-        import cucumber.api.java.en.And;
-        import cucumber.api.java.en.Then;
-        import org.apache.log4j.Logger;
+import java.util.HashMap;
+import java.util.Map;
 
-        import static org.fundacionjala.api.util.CommonMethods.getStringValueFromMapOfResponses;
-        import static org.junit.Assert.assertEquals;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.jayway.restassured.internal.http.ContentEncoding;
+import com.jayway.restassured.mapper.ObjectMapper;
+import cucumber.api.PendingException;
+import cucumber.api.java.en.And;
+import org.fundacionjala.api.ProjectSteps;
+import org.fundacionjala.api.ValidateProjects;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class Asserts {
 
     private static final int INDEX_1 = 0;
 
     private static final int INDEX_2 = 1;
-
     private ApiResources api;
-
-    private static final Logger LOGGER  =Logger.getLogger(Asserts.class.getName());
 
     public Asserts(ApiResources api) {
         this.api = api;
@@ -26,13 +31,17 @@ public class Asserts {
         assertEquals(expectedValue, api.getResponse().path(fieldName));
     }
 
-    @Then("^I expect that \\[(.*)\\] be (.*)$")
-    public void iExpectThatCommentNameBe(String expectedName, String expectedResult) {
-        LOGGER.info("values size: "+ expectedName);
-        String[] value = expectedName.split("\\.");
-        LOGGER.info("values size: "+ value.length);
-        LOGGER.info("values: "+ value[0] +" "+ value[1]);
-        String actualResult = getStringValueFromMapOfResponses(value[INDEX_1], value[INDEX_2]);
-        assertEquals(expectedResult, actualResult);
+    @And("^I validate all setting projects$")
+    public void iValidateAllSettingProjects(Map<ProjectSteps, Object> valuesMap) {
+
+        Gson gson = new Gson();
+        Map<ProjectSteps,Object> map = new HashMap<>();
+        map = (Map<ProjectSteps,Object>) gson.fromJson(api.getResponse().print(), map.getClass());
+        Map<ProjectSteps, Object> finalMap = map;
+        ValidateProjects.getAssertionMap(finalMap).values().stream().forEach((steps) -> {
+            assertTrue("The fields is false ",steps);
+        });
+
+
     }
 }

@@ -27,6 +27,8 @@ public class ApiResources {
 
     private String endPoint;
 
+    private Map <String , Object> MapParameter;
+
     @Given("^I have the (.*) endpoint$")
     public void iHaveTheEndpoint(String endPoint) {
         this.endPoint = mapEndpoint(endPoint);
@@ -39,6 +41,7 @@ public class ApiResources {
 
     @When("^I sen(?:d|t) a POST request to (.*)$")
     public void iSendAPOSTRequestWith(String endPoint, Map<String, Object> parameters) {
+        MapParameter = parameters;
         response = postRequest(this.endPoint = mapEndpoint(endPoint), parameters);
     }
 
