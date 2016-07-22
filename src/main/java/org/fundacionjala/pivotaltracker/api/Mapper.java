@@ -1,4 +1,4 @@
-package org.fundacionjala.api.api;
+package org.fundacionjala.pivotaltracker.api;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 import com.jayway.restassured.response.Response;
 
 import static com.jayway.restassured.path.json.JsonPath.from;
-import static org.fundacionjala.api.util.Constants.RESPONSE_VALUES;
+import static org.fundacionjala.pivotaltracker.util.Constants.RESPONSE_VALUES;
 
 public class Mapper {
 

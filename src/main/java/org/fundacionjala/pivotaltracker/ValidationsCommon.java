@@ -1,4 +1,4 @@
-package org.fundacionjala.api;
+package org.fundacionjala.pivotaltracker;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package org.fundacionjala.api;
+package org.fundacionjala.pivotaltracker;
 
 /**
  * Created by mijhailvillarroel on 7/21/2016.

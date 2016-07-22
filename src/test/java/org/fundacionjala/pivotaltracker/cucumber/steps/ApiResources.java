@@ -1,4 +1,4 @@
-package org.fundacionjala.api.cucumber.steps;
+package org.fundacionjala.pivotaltracker.cucumber.steps;
 
 import com.jayway.restassured.response.Response;
 import cucumber.api.java.en.And;
@@ -7,18 +7,18 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import java.util.Map;
 
-import static org.fundacionjala.api.api.Mapper.addResponse;
-import static org.fundacionjala.api.api.Mapper.mapEndpoint;
-import static org.fundacionjala.api.api.RequestManager.deleteRequest;
-import static org.fundacionjala.api.api.RequestManager.getRequest;
-import static org.fundacionjala.api.api.RequestManager.postRequest;
-import static org.fundacionjala.api.api.RequestManager.putRequest;
+import static org.fundacionjala.pivotaltracker.api.Mapper.addResponse;
+import static org.fundacionjala.pivotaltracker.api.Mapper.mapEndpoint;
+import static org.fundacionjala.pivotaltracker.api.RequestManager.deleteRequest;
+import static org.fundacionjala.pivotaltracker.api.RequestManager.getRequest;
+import static org.fundacionjala.pivotaltracker.api.RequestManager.postRequest;
+import static org.fundacionjala.pivotaltracker.api.RequestManager.putRequest;
 import static org.junit.Assert.assertEquals;
 
 /**
  * @author Henrry Salinas.
  *         <p>
- *         This class provide the basic step definitions to work with api rest requests
+ *         This class provide the basic step definitions to work with pivotaltracker rest requests
  */
 public class ApiResources {
 

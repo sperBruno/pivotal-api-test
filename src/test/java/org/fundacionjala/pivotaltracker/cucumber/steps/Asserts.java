@@ -1,4 +1,4 @@
-package org.fundacionjala.api.cucumber.steps;
+package org.fundacionjala.pivotaltracker.cucumber.steps;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,11 +6,11 @@ import java.util.Map;
 import com.google.gson.Gson;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
-import org.fundacionjala.api.ProjectSteps;
-import org.fundacionjala.api.ValidateProjects;
+import org.fundacionjala.pivotaltracker.ProjectSteps;
+import org.fundacionjala.pivotaltracker.ValidateProjects;
 
 import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
-import static org.fundacionjala.api.util.CommonMethods.getStringValueFromMapOfResponses;
+import static org.fundacionjala.pivotaltracker.util.CommonMethods.getStringValueFromMapOfResponses;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
