@@ -62,6 +62,7 @@ public final class CommonMethods {
      */
     public static void quitProgram(String message) {
         LOGGER.error(message);
+    }
 
     public static void deleteAllWorkspaces() {
         ArrayList<Map<String, ?>> jsonAsArrayList = from(getRequest(WORKSPACES_ENDPOINT).asString()).get("");
@@ -71,9 +72,5 @@ public final class CommonMethods {
             }
         }
     }
-    public static void quitProgram(String message) {
-        System.err.println(message);
 
-        Runtime.getRuntime().exit(1);
-    }
 }
