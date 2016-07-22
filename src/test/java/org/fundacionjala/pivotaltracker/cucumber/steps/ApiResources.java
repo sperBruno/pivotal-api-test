@@ -7,18 +7,15 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import java.util.Map;
 
-import static org.fundacionjala.pivotaltracker.api.Mapper.addResponse;
-import static org.fundacionjala.pivotaltracker.api.Mapper.mapEndpoint;
-import static org.fundacionjala.pivotaltracker.api.RequestManager.deleteRequest;
-import static org.fundacionjala.pivotaltracker.api.RequestManager.getRequest;
-import static org.fundacionjala.pivotaltracker.api.RequestManager.postRequest;
-import static org.fundacionjala.pivotaltracker.api.RequestManager.putRequest;
+import static org.fundacionjala.api.api.Mapper.addResponse;
+import static org.fundacionjala.api.api.Mapper.mapEndpoint;
+import static org.fundacionjala.api.api.RequestManager.*;
 import static org.junit.Assert.assertEquals;
 
 /**
  * @author Henrry Salinas.
  *         <p>
- *         This class provide the basic step definitions to work with pivotaltracker rest requests
+ *         This class provide the basic step definitions to work with api rest requests
  */
 public class ApiResources {
 
@@ -64,12 +61,21 @@ public class ApiResources {
         assertEquals(statusCodeExpected, response.statusCode());
     }
 
+    @Given("^I send a DELETE request to (.*)$")
+    public void iSendADELETERequestToEndpoint(String endpoint) {
+        response = deleteRequest(this.endPoint = mapEndpoint(endPoint));
+    }
+    
     public Response getResponse() {
         return response;
     }
 
     public String getEndPoint() {
         return endPoint;
+    }
+
+    public Map<String, Object> getParameters() {
+        return parameters;
     }
 
 }
