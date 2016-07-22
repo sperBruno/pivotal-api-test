@@ -1,7 +1,6 @@
 package org.fundacionjala.api.cucumber.steps;
 
 import com.jayway.restassured.response.Response;
-
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -10,10 +9,7 @@ import java.util.Map;
 
 import static org.fundacionjala.api.api.Mapper.addResponse;
 import static org.fundacionjala.api.api.Mapper.mapEndpoint;
-import static org.fundacionjala.api.api.RequestManager.deleteRequest;
-import static org.fundacionjala.api.api.RequestManager.getRequest;
-import static org.fundacionjala.api.api.RequestManager.postRequest;
-import static org.fundacionjala.api.api.RequestManager.putRequest;
+import static org.fundacionjala.api.api.RequestManager.*;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -65,12 +61,21 @@ public class ApiResources {
         assertEquals(statusCodeExpected, response.statusCode());
     }
 
+    @Given("^I send a DELETE request to (.*)$")
+    public void iSendADELETERequestToEndpoint(String endpoint) {
+        response = deleteRequest(this.endPoint = mapEndpoint(endPoint));
+    }
+    
     public Response getResponse() {
         return response;
     }
 
     public String getEndPoint() {
         return endPoint;
+    }
+
+    public Map<String, Object> getParameters() {
+        return parameters;
     }
 
 }
