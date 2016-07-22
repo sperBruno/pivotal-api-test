@@ -12,7 +12,7 @@ Feature: Post comments into a story
   @deleteProject
   Scenario: Create a comment
     When I send a POST request to /projects/[Project1.id]/stories/[Story1.id]/comments
-      | name | CommentTest |
+      | text | CommentTest |
     And stored as Comment1
     Then I expect the status code 200
-    And I expect that [Comment1.name] be CommentTest
+    And I expect that [Comment1.text] be CommentTest
