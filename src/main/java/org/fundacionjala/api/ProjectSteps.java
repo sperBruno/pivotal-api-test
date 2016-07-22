@@ -4,8 +4,8 @@ package org.fundacionjala.api;
  * Created by mijhailvillarroel on 7/21/2016.
  */
 public enum ProjectSteps {
-    ID_PROJECTS,
-    KIND,
+    id,
+    kind,
     NAME,
     VERSION,
     ITERATION_LENGTH,
@@ -29,5 +29,9 @@ public enum ProjectSteps {
     UPDATED_AT,
     ACCOUNT_ID,
     CURRENT_ITERATION_NUMBER,
-    ENABLE_FOLLOWING
+    ENABLE_FOLLOWING;
+
+    public String nameLowerCase() {
+        return name().toLowerCase();
+    }
 }

@@ -15,10 +15,10 @@ import static org.fundacionjala.api.ProjectSteps.ENABLE_FOLLOWING;
 import static org.fundacionjala.api.ProjectSteps.ENABLE_INCOMING_EMAILS;
 import static org.fundacionjala.api.ProjectSteps.ENABLE_TASKS;
 import static org.fundacionjala.api.ProjectSteps.HAS_GOOGLE_DOMAIN;
-import static org.fundacionjala.api.ProjectSteps.ID_PROJECTS;
 import static org.fundacionjala.api.ProjectSteps.INITIAL_VELOCITY;
 import static org.fundacionjala.api.ProjectSteps.ITERATION_LENGTH;
-import static org.fundacionjala.api.ProjectSteps.KIND;
+import static org.fundacionjala.api.ProjectSteps.id;
+import static org.fundacionjala.api.ProjectSteps.kind;
 import static org.fundacionjala.api.ProjectSteps.NAME;
 import static org.fundacionjala.api.ProjectSteps.NUMBER_OF_DONE_ITERATIONS_TO_SHOW;
 import static org.fundacionjala.api.ProjectSteps.POINT_SCALE_IS_CUSTOM;
@@ -47,10 +47,10 @@ public class ValidateProjects {
 
     public static Map<ProjectSteps, Boolean> getAssertionMap(Map<ProjectSteps, Object> values) {
         Map<ProjectSteps, Boolean> strategyMap = new HashMap<>();
-        strategyMap.put(ID_PROJECTS, validateSizeString(String.valueOf(values.get(ID_PROJECTS).toString()),50));
-        strategyMap.put(KIND,  validateKind(values.get(KIND).toString(),"project"));
-        strategyMap.put(NAME, validateSizeString(values.get(NAME).toString(),50));
-        strategyMap.put(VERSION, isAInt(values.get(VERSION).toString()));
+        strategyMap.put(id, validateSizeString(String.valueOf(values.get(id).toString()),50));
+        strategyMap.put(kind,  validateKind(values.get(kind.nameLowerCase()).toString(),"project"));
+        strategyMap.put(NAME, validateSizeString(values.get(NAME.nameLowerCase()).toString(),50));
+        strategyMap.put(VERSION, isAInt(values.get(VERSION.nameLowerCase()).toString()));
         strategyMap.put(ITERATION_LENGTH, isAInt(values.get(ITERATION_LENGTH).toString()));
         strategyMap.put(WEEK_START_DAY,  validateValueIntoList(nameDays,values.get(WEEK_START_DAY).toString()));
         strategyMap.put(POINT_SCALE_IS_CUSTOM,  isABoolean(values.get(POINT_SCALE_IS_CUSTOM).toString()));
