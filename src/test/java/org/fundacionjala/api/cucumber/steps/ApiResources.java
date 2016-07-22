@@ -61,6 +61,11 @@ public class ApiResources {
         assertEquals(statusCodeExpected, response.statusCode());
     }
 
+    @Given("^I send a DELETE request to (.*)$")
+    public void iSendADELETERequestToEndpoint(String endpoint) {
+        response = deleteRequest(this.endPoint = mapEndpoint(endPoint));
+    }
+    
     public Response getResponse() {
         return response;
     }
