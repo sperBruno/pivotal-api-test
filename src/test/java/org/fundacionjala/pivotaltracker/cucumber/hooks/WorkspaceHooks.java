@@ -1,15 +1,15 @@
-package org.fundacionjala.api.cucumber.hooks;
+package org.fundacionjala.pivotaltracker.cucumber.hooks;
 
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-import org.fundacionjala.api.cucumber.steps.ApiResources;
+import org.fundacionjala.pivotaltracker.cucumber.steps.ApiResources;
 
 import static com.jayway.restassured.path.json.JsonPath.from;
-import static org.fundacionjala.api.api.RequestManager.deleteRequest;
-import static org.fundacionjala.api.util.CommonMethods.deleteAllProjects;
-import static org.fundacionjala.api.util.CommonMethods.deleteAllWorkspaces;
-import static org.fundacionjala.api.util.Constants.PROJECTS_ENDPOINT;
-import static org.fundacionjala.api.util.Constants.WORKSPACES_ENDPOINT;
+import static org.fundacionjala.pivotaltracker.api.RequestManager.deleteRequest;
+import static org.fundacionjala.pivotaltracker.util.CommonMethods.deleteAllProjects;
+import static org.fundacionjala.pivotaltracker.util.CommonMethods.deleteAllWorkspaces;
+import static org.fundacionjala.pivotaltracker.util.Constants.PROJECTS_ENDPOINT;
+import static org.fundacionjala.pivotaltracker.util.Constants.WORKSPACES_ENDPOINT;
 
 /**
  * Created by danielgonzales

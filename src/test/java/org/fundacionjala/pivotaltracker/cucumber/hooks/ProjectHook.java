@@ -1,11 +1,11 @@
-package org.fundacionjala.api.cucumber.hooks;
+package org.fundacionjala.pivotaltracker.cucumber.hooks;
 
 import cucumber.api.java.After;
 
-import static org.fundacionjala.api.api.RequestManager.deleteRequest;
-import static org.fundacionjala.api.util.Constants.PROJECTS_ENDPOINT;
-import static org.fundacionjala.api.util.Constants.PROJECT_ID;
-import static org.fundacionjala.api.util.Constants.RESPONSE_VALUES;
+import static org.fundacionjala.pivotaltracker.api.RequestManager.deleteRequest;
+import static org.fundacionjala.pivotaltracker.util.Constants.PROJECTS_ENDPOINT;
+import static org.fundacionjala.pivotaltracker.util.Constants.PROJECT_ID;
+import static org.fundacionjala.pivotaltracker.util.Constants.RESPONSE_VALUES;
 
 /**
  * This class will clean the enviroment after all Comments features have been executed.

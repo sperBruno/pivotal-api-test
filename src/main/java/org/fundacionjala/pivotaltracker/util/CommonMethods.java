@@ -1,4 +1,4 @@
-package org.fundacionjala.api.util;
+package org.fundacionjala.pivotaltracker.util;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -6,15 +6,15 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 
 import static com.jayway.restassured.path.json.JsonPath.from;
-import static org.fundacionjala.api.api.RequestManager.deleteRequest;
-import static org.fundacionjala.api.api.RequestManager.getRequest;
-import static org.fundacionjala.api.util.Constants.PROJECTS_ENDPOINT;
-import static org.fundacionjala.api.util.Constants.PROJECT_ID;
+import static org.fundacionjala.pivotaltracker.api.RequestManager.deleteRequest;
+import static org.fundacionjala.pivotaltracker.api.RequestManager.getRequest;
+import static org.fundacionjala.pivotaltracker.util.Constants.PROJECTS_ENDPOINT;
+import static org.fundacionjala.pivotaltracker.util.Constants.PROJECT_ID;
 
-import static org.fundacionjala.api.util.Constants.RESPONSE_VALUES;
+import static org.fundacionjala.pivotaltracker.util.Constants.RESPONSE_VALUES;
 
-import static org.fundacionjala.api.util.Constants.WORKSPACES_ENDPOINT;
-import static org.fundacionjala.api.util.Constants.WORKSPACE_ID;
+import static org.fundacionjala.pivotaltracker.util.Constants.WORKSPACES_ENDPOINT;
+import static org.fundacionjala.pivotaltracker.util.Constants.WORKSPACE_ID;
 
 
 /**

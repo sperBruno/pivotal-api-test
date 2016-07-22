@@ -1,4 +1,4 @@
-package org.fundacionjala.api.util;
+package org.fundacionjala.pivotaltracker.util;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

@@ -1,13 +1,13 @@
-package org.fundacionjala.api.cucumber.hooks;
+package cucumber.hooks;
 
-import org.fundacionjala.api.api.Mapper;
-import org.fundacionjala.api.cucumber.steps.ApiResources;
+import org.fundacionjala.pivotal.api.Mapper;
+import cucumber.steps.ApiResources;
 
 import cucumber.api.java.After;
 
 import static com.jayway.restassured.path.json.JsonPath.from;
-import static org.fundacionjala.api.api.RequestManager.deleteRequest;
-import static org.fundacionjala.api.util.Constants.PROJECTS_ENDPOINT;
+import static org.fundacionjala.pivotal.api.RequestManager.deleteRequest;
+import static org.fundacionjala.pivotal.util.Constants.PROJECTS_ENDPOINT;
 
 public class EpicHooks {
     private ApiResources api;

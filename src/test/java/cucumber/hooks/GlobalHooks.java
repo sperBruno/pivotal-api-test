@@ -1,17 +1,15 @@
-package org.fundacionjala.api.cucumber.hooks;
+package cucumber.hooks;
 
 import cucumber.api.java.Before;
 import org.apache.commons.lang3.StringUtils;
-import org.fundacionjala.api.util.PropertiesInfo;
+import org.fundacionjala.pivotal.util.PropertiesInfo;
 
-import cucumber.api.java.Before;
-
-import static org.fundacionjala.api.api.RequestManager.getRequest;
-import static org.fundacionjala.api.util.CommonMethods.deleteAllProjects;
-import static org.fundacionjala.api.util.CommonMethods.deleteAllWorkspaces;
-import static org.fundacionjala.api.util.CommonMethods.quitProgram;
-import static org.fundacionjala.api.util.Constants.PROJECTS_ENDPOINT;
-import static org.fundacionjala.api.util.Constants.SUCCESS_STATUS_CODE;
+import static org.fundacionjala.pivotal.api.RequestManager.getRequest;
+import static org.fundacionjala.pivotal.util.CommonMethods.deleteAllProjects;
+import static org.fundacionjala.pivotal.util.CommonMethods.deleteAllWorkspaces;
+import static org.fundacionjala.pivotal.util.CommonMethods.quitProgram;
+import static org.fundacionjala.pivotal.util.Constants.PROJECTS_ENDPOINT;
+import static org.fundacionjala.pivotal.util.Constants.SUCCESS_STATUS_CODE;
 
 /**
  *This class stores the global hooks methods required to run the test
@@ -20,9 +18,9 @@ import static org.fundacionjala.api.util.Constants.SUCCESS_STATUS_CODE;
  */
 public class GlobalHooks {
 
-    private static final String PROPERTIES_FILE_UNFILLED = "Error reading the properties file, one of the next properties is missing: email, api token or password";
+    private static final String PROPERTIES_FILE_UNFILLED = "Error reading the properties file, one of the next properties is missing: email, pivotal token or password";
 
-    private static final String API_CREDENTIALS_INCORRECT = "The api rest credentials is not correct";
+    private static final String API_CREDENTIALS_INCORRECT = "The pivotal rest credentials is not correct";
 
     private static final PropertiesInfo PROPERTIES_INFO = PropertiesInfo.getInstance();
 

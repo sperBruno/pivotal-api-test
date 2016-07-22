@@ -1,11 +1,11 @@
-package org.fundacionjala.api.api;
+package org.fundacionjala.pivotaltracker.api;
 
 import com.github.markusbernhardt.proxy.ProxySearch;
 import com.jayway.restassured.builder.RequestSpecBuilder;
 import com.jayway.restassured.specification.RequestSpecification;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
-import org.fundacionjala.api.util.PropertiesInfo;
+import org.fundacionjala.pivotaltracker.util.PropertiesInfo;
 
 import static com.jayway.restassured.RestAssured.baseURI;
 

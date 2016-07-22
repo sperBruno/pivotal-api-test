@@ -1,4 +1,4 @@
-package org.fundacionjala.api.cucumber.steps;
+package org.fundacionjala.pivotaltracker.cucumber.steps;
 
 import com.jayway.restassured.response.Response;
 import cucumber.api.java.en.And;
