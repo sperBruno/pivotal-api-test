@@ -7,4 +7,6 @@ Feature: Testing for login Pivotal page
       | public | true    |
     Then I expect the status code 200
     And I validate all setting projects
+      | name   | TestCreateProjects238 |
+      | public | true    |
 
