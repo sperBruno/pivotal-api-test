@@ -14,7 +14,7 @@ Feature: Update a comment
 
   @deleteProject
   Scenario: Update comment
-    Given I send a PUT request to /projects/[Project1.id]/stories/[Story1.id]/accounts/[Comment1.id]
+    Given I send a PUT request to /projects/[Project1.id]/stories/[Story1.id]/comments/[Comment1.id]
       | text | CommentTest Updated |
     Then I expect the status code 200
     And The text field should be equal to CommentTest Updated
