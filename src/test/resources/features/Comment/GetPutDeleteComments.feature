@@ -19,8 +19,6 @@ Feature: Get, Put and Delete Comment
     And I expect that [Comment1.text] be CommentTestToBeChecked
     And I expect that [Comment1.kind] be comment
 
-
-
   @deleteProject
   Scenario: Deleting a comment
     Given I have the /projects/[Project1.id]/stories/[Story1.id]/comments/[Comment1.id] endpoint

@@ -25,7 +25,7 @@ public class ApiResources {
 
     private String endPoint;
 
-    private Map <String , Object> MapParameter;
+    private Map<String, Object> MapParameter;
 
     @Given("^I have the (.*) endpoint$")
     public void iHaveTheEndpoint(String endPoint) {
@@ -63,7 +63,7 @@ public class ApiResources {
     public void iSendADELETERequestToEndpoint(String endpoint) {
         response = deleteRequest(this.endPoint = mapEndpoint(endPoint));
     }
-    
+
     public Response getResponse() {
         return response;
     }

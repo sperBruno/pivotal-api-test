@@ -18,7 +18,7 @@ public final class CommonValidations {
         return word.length() <= size;
     }
 
-    public static boolean validateValueIntoList(List <String> valuesList, String valueSearch) {
+    public static boolean validateValueIntoList(List<String> valuesList, String valueSearch) {
         return valuesList.contains(valueSearch);
     }
 
@@ -27,15 +27,15 @@ public final class CommonValidations {
     }
 
     public static boolean isABoolean(String value) {
-        return Boolean.parseBoolean (value);
+        return Boolean.parseBoolean(value);
     }
 
     public static boolean isAInt(String value) {
         try {
 
-            Integer.parseInt((int)Double.parseDouble (value)+"");
+            Integer.parseInt((int) Double.parseDouble(value) + "");
             return true;
-        }catch (NumberFormatException e) {
+        } catch (NumberFormatException e) {
             return false;
         }
 

@@ -13,7 +13,7 @@ import static org.fundacionjala.pivotal.util.Constants.PROJECTS_ENDPOINT;
 import static org.fundacionjala.pivotal.util.Constants.SUCCESS_STATUS_CODE;
 
 /**
- *This class stores the global hooks methods required to run the test
+ * This class stores the global hooks methods required to run the test
  *
  * @author Henrry Salinas.
  */
@@ -35,7 +35,7 @@ public class GlobalHooks {
             Runtime.getRuntime().addShutdownHook(new Thread() {
                 public void run() {
                     deleteAllProjects();
-                    deleteAllWorkspaces ();
+                    deleteAllWorkspaces();
                 }
             });
             if (StringUtils.isEmpty(PROPERTIES_INFO.getEmail()) || StringUtils.isEmpty(PROPERTIES_INFO.getApiToken()) || StringUtils.isEmpty(PROPERTIES_INFO.getPassword())) {
