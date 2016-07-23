@@ -18,7 +18,7 @@ public class WorkspaceHooks {
 
     private ApiResources api;
 
-    public WorkspaceHooks (ApiResources api) {
+    public WorkspaceHooks(ApiResources api) {
         this.api = api;
     }
 
@@ -29,12 +29,12 @@ public class WorkspaceHooks {
 
     @After("@DeleteWorkspace")
     public void deleteWorkspace() {
-            deleteRequest(WORKSPACES_ENDPOINT + from(api.getResponse().asString()).get("id").toString());
+        deleteRequest(WORKSPACES_ENDPOINT + from(api.getResponse().asString()).get("id").toString());
     }
 
-    @Before("@CleanEnviroment")
+    @Before("@CleanEnvironment")
     public void DeleteAllWorkspaces() {
-        deleteAllProjects ();
+        deleteAllProjects();
         deleteAllWorkspaces();
     }
 }

@@ -11,7 +11,7 @@ Feature: Post Epic
 
     And stored as Project1
 
-  @smoke_test @epic
+  @deleteProject
   Scenario: create a new epic
     Given I send a POST request to /projects/[Project1.id]/epics
 

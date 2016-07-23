@@ -25,23 +25,22 @@ import static org.fundacionjala.pivotal.util.Constants.WORKSPACE_ID;
  */
 public final class CommonMethods {
 
-    private static final Logger LOGGER = Logger.getLogger(CommonMethods.class.getName());
+    private static final Logger LOGGER = Logger.getLogger (CommonMethods.class.getName ());
 
-    private CommonMethods() {
+    private CommonMethods () {
     }
 
     /**
      * This method will be used to delete all project form Pivotal Tracker.
      */
-    public static void deleteAllProjects() {
-        ArrayList<Map<String, ?>> jsonAsArrayList = from(getRequest(PROJECTS_ENDPOINT).asString()).get("");
-        if (jsonAsArrayList.size() > 0) {
+    public static void deleteAllProjects () {
+        ArrayList<Map<String, ?>> jsonAsArrayList = from (getRequest (PROJECTS_ENDPOINT).asString ()).get ("");
+        if (jsonAsArrayList.size () > 0) {
             for (Map<String, ?> object : jsonAsArrayList) {
-                deleteRequest(PROJECTS_ENDPOINT + object.get(PROJECT_ID).toString());
+                deleteRequest (PROJECTS_ENDPOINT + object.get (PROJECT_ID).toString ());
             }
         }
     }
-
 
     /**
      * This method will be used to get an String value form the map of responses.
@@ -50,9 +49,9 @@ public final class CommonMethods {
      * @param value will be the response
      * @return an String Value
      */
-    public static String getStringValueFromMapOfResponses(String key, String value) {
+    public static String getStringValueFromMapOfResponses (String key, String value) {
 
-        return RESPONSE_VALUES.get(key).jsonPath().get(value);
+        return RESPONSE_VALUES.get (key).jsonPath ().get (value);
     }
 
     /**
@@ -60,15 +59,15 @@ public final class CommonMethods {
      *
      * @param message
      */
-    public static void quitProgram(String message) {
-        LOGGER.error(message);
+    public static void quitProgram (String message) {
+        LOGGER.error (message);
     }
 
-    public static void deleteAllWorkspaces() {
-        ArrayList<Map<String, ?>> jsonAsArrayList = from(getRequest(WORKSPACES_ENDPOINT).asString()).get("");
-        if (jsonAsArrayList.size() > 0) {
+    public static void deleteAllWorkspaces () {
+        ArrayList<Map<String, ?>> jsonAsArrayList = from (getRequest (WORKSPACES_ENDPOINT).asString ()).get ("");
+        if (jsonAsArrayList.size () > 0) {
             for (Map<String, ?> object : jsonAsArrayList) {
-                deleteRequest(WORKSPACES_ENDPOINT + object.get(WORKSPACE_ID).toString());
+                deleteRequest (WORKSPACES_ENDPOINT + object.get (WORKSPACE_ID).toString ());
             }
         }
     }

@@ -64,7 +64,6 @@ public class ApiResources {
         response = deleteRequest(this.endPoint = mapEndpoint(endPoint));
     }
 
-
     public Response getResponse() {
         return response;
     }
