@@ -25,7 +25,7 @@ public class ApiResources {
 
     private String endPoint;
 
-    private Map <String , Object> MapParameter;
+    private Map <String , Object> mapParameter;
 
     @Given("^I have the (.*) endpoint$")
     public void iHaveTheEndpoint(String endPoint) {
@@ -37,14 +37,15 @@ public class ApiResources {
         response = getRequest(this.endPoint = mapEndpoint(endPoint));
     }
 
-    @When("^I sen(?:d|t) a POST request to (.*)$")
+    @When("^I send a POST request to (.*)$")
     public void iSendAPOSTRequestWith(String endPoint, Map<String, Object> parameters) {
-        MapParameter = parameters;
+        mapParameter = parameters;
         response = postRequest(this.endPoint = mapEndpoint(endPoint), parameters);
     }
 
     @When("^I send a PUT request to (.*?)$")
     public void iSendAPUTRequest(String endPoint, Map<String, Object> parameters) {
+        mapParameter = parameters;
         response = putRequest(this.endPoint = mapEndpoint(endPoint), parameters);
     }
 
@@ -58,18 +59,23 @@ public class ApiResources {
         addResponse(key, response);
     }
 
-
     @Given("^I send a DELETE request to (.*)$")
     public void iSendADELETERequestToEndpoint(String endpoint) {
         response = deleteRequest(this.endPoint = mapEndpoint(endPoint));
     }
-    
+
+
     public Response getResponse() {
         return response;
     }
 
     public String getEndPoint() {
         return endPoint;
+    }
+
+    public Map<String, Object> getMapParameter() {
+        System.out.println(mapParameter);
+        return mapParameter;
     }
 
 }

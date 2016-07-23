@@ -15,7 +15,10 @@ Feature: Update a story in project from pivotal tracker
   @deleteProjectStory
   Scenario: Edit a story
     Given I send a PUT request to /projects/[Storie1.project_id]/stories/[Storie1.id]
-      | name | newStory |
+      | name        | newStory     |
+      | description | description1 |
+      | estimate    | 1            |
+      | story_type  | feature      |
     Then I expect the status code 200
     And I validate fields
 

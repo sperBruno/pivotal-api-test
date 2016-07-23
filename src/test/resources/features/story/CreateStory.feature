@@ -9,6 +9,9 @@ Feature: Create new story in project from pivotal tracker
   @deleteProject
   Scenario: Create new story
     Given I send a POST request to /projects/[Project1.id]/stories
-      | name     | newStory |
+      | name        | newStory    |
+      | description | description |
+      | estimate    | 1           |
+      | story_type  | feature     |
     Then I expect the status code 200
     And I validate fields

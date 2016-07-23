@@ -34,17 +34,19 @@ public class Asserts {
     public void iValidateAllSettingProjects(Map<ProjectSteps, Object> valuesMap) {
 
         Gson gson = new Gson();
-        Map<ProjectSteps,Object> map = new HashMap<>();
-        map = (Map<ProjectSteps,Object>) gson.fromJson(api.getResponse().print(), map.getClass());
+        Map<ProjectSteps, Object> map = new HashMap<>();
+        map = (Map<ProjectSteps, Object>) gson.fromJson(api.getResponse().print(), map.getClass());
         Map<ProjectSteps, Object> finalMap = map;
         ValidateProjects.getAssertionMap(finalMap).values().stream().forEach((steps) -> {
-            assertTrue("The fields is false ",steps);
+            assertTrue("The fields is false ", steps);
         });
     }
+
     @Then("^I expect the status code (\\d+)$")
     public void iExpectStatusCode(int statusCodeExpected) {
         assertEquals(statusCodeExpected, api.getResponse().statusCode());
     }
+
     @Then("^I expect that \\[(.*)\\] be (.*)$")
     public void iExpectThatCommentNameBe(String expectedName, String expectedResult) {
         LOGGER.info("values size: " + expectedName);
@@ -57,7 +59,9 @@ public class Asserts {
 
     @Then("^I validate fields$")
     public void iValidateFields() {
-        final String expected = "newStory";
-        assertEquals(expected, api.getResponse().jsonPath().get("name"));
+        api.getMapParameter();
+        final String name = "name";
+        assertEquals(api.getMapParameter().get(name), api.getResponse().jsonPath().get(name).toString());
+
     }
 }
