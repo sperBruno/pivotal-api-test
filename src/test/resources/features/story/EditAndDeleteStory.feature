@@ -3,25 +3,23 @@ Feature: Update a story in project from pivotal tracker
 
   Background: Create Project
     Given I send a POST request to /projects
-      | name   | projectTest |
-      | public | true        |
+      | name   | projectTest1 |
+      | public | true         |
+    Then I expect the status code 200
     And stored as Project1
 
     Given I send a POST request to /projects/[Project1.id]/stories
-      | name     | story |
-      | estimate | 1     |
+      | name | story |
+    Then I expect the status code 200
     And stored as Story1
 
 
   @deleteProject
   Scenario: Edit a story
-    Given I send a PUT request to /projects/[Storie1.project_id]/stories/[Storie1.id]
-      | name        | newStory     |
-      | description | description1 |
-      | estimate    | 1            |
-      | story_type  | feature      |
+    Given I send a PUT request to /projects/[Story1.project_id]/stories/[Story1.id]
+      | name        | newStory       |
     Then I expect the status code 200
-    And I validate fields
+    And I expect the name equals to newStory
 
   @deleteProject
   Scenario: Delete a story

@@ -10,9 +10,7 @@ import org.fundacionjala.pivotal.ProjectSteps;
 import org.fundacionjala.pivotal.ValidateProjects;
 
 import static org.fundacionjala.pivotal.util.CommonMethods.getStringValueFromMapOfResponses;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class Asserts {
 
@@ -64,9 +62,14 @@ public class Asserts {
 
     @Then("^I validate fields$")
     public void iValidateFields() {
-        api.getMapParameter();
-        final String name = "name";
-        assertEquals(api.getMapParameter().get(name), api.getResponse().jsonPath().get(name).toString());
+        StoryResources storyResources = new StoryResources(api);
+        api.getMapParameter().keySet().stream().forEach((step) -> {
+            assertEquals(storyResources.assertionMap().get(step), api.getMapParameter().get(step));
+        });
+    }
 
+    @And("^I expect the (.*) equals to (.*)$")
+    public void iExpectTheParamEqualsToValue(String property, String value) {
+        assertEquals(value, api.getMapParameter().get(property));
     }
 }

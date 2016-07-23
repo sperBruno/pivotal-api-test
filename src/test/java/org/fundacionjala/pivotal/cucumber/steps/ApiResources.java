@@ -73,7 +73,6 @@ public class ApiResources {
     }
 
     public Map<String, Object> getMapParameter() {
-        System.out.println(mapParameter);
         return mapParameter;
     }
 
