@@ -13,14 +13,13 @@ import static org.fundacionjala.pivotal.util.Constants.RESPONSE_VALUES;
  * @author Bruno Barrios.
  */
 public class ProjectHook {
-
+    private static final String PROJECT_1 = "Project1";
     /**
      * This hook method will delete the project that is created into the Comments scenarios.
      */
     @After("@deleteProject")
     public void deleteAccount() {
-        final String project1 = "Project1";
-        String id = RESPONSE_VALUES.get(project1).jsonPath().get(PROJECT_ID).toString();
+        String id = RESPONSE_VALUES.get(PROJECT_1).jsonPath().get(PROJECT_ID).toString();
         deleteRequest(PROJECTS_ENDPOINT+id);
     }
 }

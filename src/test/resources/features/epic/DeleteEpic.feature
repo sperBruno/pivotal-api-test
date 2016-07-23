@@ -15,10 +15,8 @@ Feature: Delete Epics
       | name | epic to delete |
     And stored as Epic1
 
-  @smoke_test @epic
+  @deleteProject
   Scenario: delete a  epic
     Given I have the /projects/[Project1.id]/epics/[Epic1.id] endpoint
     When I send a DELETE request
     Then I expect the status code 204
-
-

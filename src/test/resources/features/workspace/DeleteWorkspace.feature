@@ -7,7 +7,7 @@ Feature: Delete Workspace
 
   Background: Create a workspace
     Given I send a POST request to /my/workspaces
-      | name   | WorkspaceTest1 |
+      | name | WorkspaceTest1 |
     And stored as Workspace1
 
   Scenario: delete a workspace without projects
