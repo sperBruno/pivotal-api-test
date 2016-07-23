@@ -38,6 +38,7 @@ public class Asserts {
         map = (Map<ProjectSteps,Object>) gson.fromJson(api.getResponse().print(), map.getClass());
         Map<ProjectSteps, Object> finalMap = map;
         ValidateProjects.getAssertionMap(finalMap).values().stream().forEach((steps) -> {
+
             assertTrue("The fields is false ",steps);
         });
     }

@@ -8,8 +8,8 @@ import cucumber.api.junit.Cucumber;
 
 /**
  * @author Henrry Salinas.
- *
- * This class store settings for the test execution
+ *         <p>
+ *         This class store settings for the test execution
  */
 @RunWith(Cucumber.class)
 @CucumberOptions(
@@ -19,7 +19,7 @@ import cucumber.api.junit.Cucumber;
                 "json:target/test-report.json",
                 "junit:target/test-report.xml"},
         features = {"src/test/resources/"},
-        glue = {"cucumber"},
+        glue = {"resources"},
         snippets = SnippetType.CAMELCASE
 )
 public class Runner {
