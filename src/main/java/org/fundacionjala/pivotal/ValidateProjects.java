@@ -47,7 +47,7 @@ public class ValidateProjects {
 
     public static Map<ProjectSteps, Boolean> getAssertionMap(Map<ProjectSteps, Object> values) {
         Map<ProjectSteps, Boolean> strategyMap = new HashMap<>();
-        strategyMap.put(ID, validateSizeString(String.valueOf(values.get(ID).toString()),50));
+        strategyMap.put(ID, validateSizeString(String.valueOf(values.get(ID.nameLowerCase ()).toString()),50));
         strategyMap.put(KIND,  validateKind(values.get(KIND.nameLowerCase()).toString(),"project"));
         strategyMap.put(NAME, validateSizeString(values.get(NAME.nameLowerCase()).toString(),50));
         strategyMap.put(VERSION, isAInt(values.get(VERSION.nameLowerCase()).toString()));
@@ -62,7 +62,7 @@ public class ValidateProjects {
         strategyMap.put(HAS_GOOGLE_DOMAIN,  isABoolean(values.get(HAS_GOOGLE_DOMAIN.nameLowerCase()).toString()));
         strategyMap.put(ENABLE_INCOMING_EMAILS,  isABoolean(values.get(ENABLE_INCOMING_EMAILS.nameLowerCase()).toString()));
         strategyMap.put(INITIAL_VELOCITY,  isAInt(values.get(INITIAL_VELOCITY.nameLowerCase()).toString()));
-        strategyMap.put(PUBLIC,  isABoolean(values.get(PUBLIC).toString()));
+        strategyMap.put(PUBLIC,  isABoolean(values.get(PUBLIC.nameLowerCase ()).toString()));
         strategyMap.put(ATOM_ENABLED,  isABoolean(values.get(ATOM_ENABLED.nameLowerCase()).toString()));
         strategyMap.put(PROJECT_TYPE,  projectType(values.get(PROJECT_TYPE.nameLowerCase()).toString()));
         strategyMap.put(START_TIME,  validateStringDate(values.get(START_TIME.nameLowerCase()).toString()));
