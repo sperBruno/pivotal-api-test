@@ -12,6 +12,7 @@ import org.fundacionjala.pivotal.ValidateProjects;
 import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
 import static org.fundacionjala.pivotal.util.CommonMethods.getStringValueFromMapOfResponses;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
 public class Asserts {
@@ -53,6 +54,13 @@ public class Asserts {
         LOGGER.info("values: " + value[0] + " " + value[1]);
         String actualResult = getStringValueFromMapOfResponses(value[INDEX_1], value[INDEX_2]);
         assertEquals(expectedResult, actualResult);
+    }
+
+    @And("^I expect that \\[(.*)\\] not be (.*)$")
+    public void iExpectThatCommentTextNotBeCommentTest(String expectedName, String expectedResult) throws Throwable {
+        String[] value = expectedName.split("\\.");
+        String actualResult = getStringValueFromMapOfResponses(value[INDEX_1], value[INDEX_2]);
+        assertNotEquals(expectedResult, actualResult);
     }
 
     @Then("^I validate fields$")

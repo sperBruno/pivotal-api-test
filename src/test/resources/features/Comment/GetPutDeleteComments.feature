@@ -17,6 +17,8 @@ Feature: Get, Put and Delete Comment
     Given I send a GET request to /projects/[Project1.id]/stories/[Story1.id]/comments/[Comment1.id] endpoint
     Then I expect the status code 200
     And I expect that [Comment1.text] be CommentTestToBeChecked
+    And I expect that [Comment1.kind] be comment
+
 
 
   @deleteProject
@@ -31,3 +33,4 @@ Feature: Get, Put and Delete Comment
       | text | CommentTest Updated |
     Then I expect the status code 200
     And The text field should be equal to CommentTest Updated
+    And I expect that [Comment1.kind] be comment

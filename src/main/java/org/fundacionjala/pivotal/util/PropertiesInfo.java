@@ -7,6 +7,8 @@ import java.util.Properties;
 
 import org.apache.log4j.Logger;
 
+import static org.fundacionjala.pivotal.util.Constants.CONFIG_PROPERTIES;
+
 /**
  * This class is for get the properties defined into properties file
  *
@@ -36,7 +38,7 @@ public class PropertiesInfo {
      */
     private void loadProperties() {
         try {
-            FileInputStream fileInputStream = new FileInputStream(Constants.CONFIG_PROPERTIES);
+            FileInputStream fileInputStream = new FileInputStream(CONFIG_PROPERTIES);
             properties = new Properties();
             properties.load(fileInputStream);
             fileInputStream.close();

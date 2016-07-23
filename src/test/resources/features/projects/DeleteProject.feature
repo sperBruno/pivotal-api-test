@@ -10,11 +10,9 @@ Feature: Testing for delete project in Pivotal
     When I send a DELETE request
     Then I expect the status code 204
 
-  @deleteProjectWithStories
+  @deleteProject
   Scenario: Edit Project
     When I send a POST request to /projects/[Project1.id]
       | description | totally new |
     Then I expect the status code 200
     And The description field should be equals to totally new
-
-

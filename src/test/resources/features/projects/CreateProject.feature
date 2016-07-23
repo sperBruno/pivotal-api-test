@@ -9,4 +9,3 @@ Feature: Testing for login Pivotal page
     And I validate all setting projects
       | name   | TestCreateProjects238 |
       | public | true    |
-
