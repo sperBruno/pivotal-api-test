@@ -1,3 +1,4 @@
+@CleanEnvironment
 Feature: Update a story in project from pivotal tracker
 
   Background: Create Project

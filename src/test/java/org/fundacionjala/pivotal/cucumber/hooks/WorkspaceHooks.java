@@ -32,7 +32,7 @@ public class WorkspaceHooks {
             deleteRequest(WORKSPACES_ENDPOINT + from(api.getResponse().asString()).get("id").toString());
     }
 
-    @Before("@CleanEnviroment")
+    @Before("@CleanEnvironment")
     public void DeleteAllWorkspaces() {
         deleteAllProjects ();
         deleteAllWorkspaces();

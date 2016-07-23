@@ -1,4 +1,4 @@
-@CleanEnviroment
+@CleanEnvironment
 Feature: Create Workspace
 
   As a user
