@@ -7,13 +7,14 @@ Feature: Create Workspace
   Background: Create a workspace
     Given I send a POST request to /my/workspaces
       | name | WorkspaceTest1 |
+    And I expect the status code 200
     And stored as Workspace1
-
     Given I send a POST request to /my/workspaces
       | name | WorkspaceTest2 |
+    And I expect the status code 200
     And stored as Workspace2
 
-  @DeleteWorkspaces
+  @deleteAllWorkspace
   Scenario: Get All Workspaces
     Given I send a GET request to /my/workspaces endpoint
     Then I expect the status code 200

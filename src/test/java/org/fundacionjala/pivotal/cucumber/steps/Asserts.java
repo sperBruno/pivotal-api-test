@@ -19,6 +19,7 @@ public class Asserts {
     private static final int INDEX_1 = 0;
 
     private static final int INDEX_2 = 1;
+
     private ApiResources api;
 
     public Asserts(ApiResources api) {
@@ -31,16 +32,12 @@ public class Asserts {
     }
 
     @And("^I validate all setting projects$")
-    public void iValidateAllSettingProjects(Map<ProjectSteps, Object> valuesMap) {
-
+    public void iValidateAllSettingProjects() {
         Gson gson = new Gson();
         Map<ProjectSteps, Object> map = new HashMap<>();
         map = (Map<ProjectSteps, Object>) gson.fromJson(api.getResponse().print(), map.getClass());
-        Map<ProjectSteps, Object> finalMap = map;
-        ValidateProjects.getAssertionMap(finalMap).values().stream().forEach((steps) -> {
-
-            assertTrue("The fields is false ", steps);
-        });
+        ValidateProjects.getAssertionMap(map).values().stream()
+                .forEach((steps) -> assertTrue("The fields is false ", steps));
     }
 
     @Then("^I expect the status code (\\d+)$")

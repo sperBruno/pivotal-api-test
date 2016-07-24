@@ -5,6 +5,7 @@ Feature: Update a story in project from pivotal tracker
     Given I send a POST request to /projects
       | name   | projectTest |
       | public | true        |
+    And I expect the status code 200
     And stored as Project1
 
     Given I send a POST request to /projects/[Project1.id]/stories
@@ -12,16 +13,14 @@ Feature: Update a story in project from pivotal tracker
       | estimate | 1     |
     And stored as Story1
 
-
-  @deleteProject
+  @deleteAllProject
   Scenario: Edit a story
     Given I send a PUT request to /projects/[Project1.id]/stories/[Story1.id]
       | name | newStory |
     Then I expect the status code 200
     And I validate fields
 
-  @deleteProject
+  @deleteAllProject
   Scenario: Delete a story
-    Given I have the /projects/[Project1.id]/stories/[Story1.id] endpoint
-    When I send a DELETE request
+    When I send a DELETE request /projects/[Project1.id]/stories/[Story1.id]
     Then I expect the status code 204
