@@ -7,8 +7,6 @@ import java.util.Properties;
 
 import org.apache.log4j.Logger;
 
-import static org.fundacionjala.pivotal.util.Constants.CONFIG_PROPERTIES;
-
 /**
  * This class is for get the properties defined into properties file
  *
@@ -17,6 +15,20 @@ import static org.fundacionjala.pivotal.util.Constants.CONFIG_PROPERTIES;
 public class PropertiesInfo {
 
     private static final Logger LOGGER = Logger.getLogger(PropertiesInfo.class.getSimpleName());
+
+    private static final String CONFIG_PROPERTIES = "gradle.properties";
+
+    private static final String PROXY_PORT = "proxyPort";
+
+    private static final String PROXY_HOST = "proxyHost";
+
+    private static final String EMAIL = "email";
+
+    private static final String PASSWORD = "password";
+
+    private static final String URL_API = "urlApi";
+
+    private static final String API_TOKEN = "apiToken";
 
     private static PropertiesInfo instance;
 
@@ -55,19 +67,19 @@ public class PropertiesInfo {
     }
 
     public String getEmail() {
-        return getProperty(Constants.EMAIL);
+        return getProperty(EMAIL);
     }
 
     public String getPassword() {
-        return getProperty(Constants.PASSWORD);
+        return getProperty(PASSWORD);
     }
 
     public String getUrlApi() {
-        return getProperty(Constants.URL_API);
+        return getProperty(URL_API);
     }
 
     public String getApiToken() {
-        return getProperty(Constants.API_TOKEN);
+        return getProperty(API_TOKEN);
     }
 
     public String getProxy() {
@@ -75,11 +87,11 @@ public class PropertiesInfo {
     }
 
     private String getProxyHost() {
-        return getProperty(Constants.PROXY_HOST);
+        return getProperty(PROXY_HOST);
     }
 
     private String getProxyPort() {
-        return getProperty(Constants.PROXY_PORT);
+        return getProperty(PROXY_PORT);
     }
 
 }

@@ -15,20 +15,6 @@ public final class Constants {
 
     public static final String ATTRIBUTE_ID = "id";
 
-    public static final String CONFIG_PROPERTIES = "gradle.properties";
-
-    public static final String PROXY_PORT = "proxyPort";
-
-    public static final String PROXY_HOST = "proxyHost";
-
-    public static final String EMAIL = "email";
-
-    public static final String PASSWORD = "password";
-
-    public static final String URL_API = "urlApi";
-
-    public static final String API_TOKEN = "apiToken";
-
     private Constants() {
     }
 }
