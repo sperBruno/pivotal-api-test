@@ -3,6 +3,7 @@ package org.fundacionjala.pivotal.cucumber.hooks;
 import cucumber.api.java.Before;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.PropertyConfigurator;
+
 import org.fundacionjala.pivotal.util.PropertiesInfo;
 
 import static org.fundacionjala.pivotal.api.RequestManager.getRequest;
@@ -18,7 +19,8 @@ import static org.fundacionjala.pivotal.util.Constants.SUCCESS_STATUS_CODE;
  * @author Henrry Salinas.
  */
 public class GlobalHooks {
-    private static final String SRC_MAIN_RESOURCES_LOG4J_PROPERTIES = "src/main/resources/log4j.properties";
+
+    private static final String LOG4J_PROPERTIES = "src/main/resources/log4j.properties";
 
     private static final String PROPERTIES_FILE_UNFILLED = "Error reading the properties file, one of the next properties is missing: email, org token or password";
 
@@ -31,21 +33,27 @@ public class GlobalHooks {
     @Before
     public void beforeAll() {
         if (!BEFORE_ALL_FLAG) {
-            deleteAllProjects();
             Runtime.getRuntime().addShutdownHook(new Thread() {
                 public void run() {
                     deleteAllProjects();
                     deleteAllWorkspaces();
                 }
             });
-            if (StringUtils.isEmpty(PROPERTIES_INFO.getEmail()) || StringUtils.isEmpty(PROPERTIES_INFO.getApiToken()) || StringUtils.isEmpty(PROPERTIES_INFO.getPassword())) {
+            if (StringUtils.isEmpty(PROPERTIES_INFO.getEmail()) ||
+                    StringUtils.isEmpty(PROPERTIES_INFO.getApiToken()) ||
+                    StringUtils.isEmpty(PROPERTIES_INFO.getPassword())) {
                 quitProgram(PROPERTIES_FILE_UNFILLED);
             } else if (getRequest(PROJECTS_ENDPOINT).statusCode() != SUCCESS_STATUS_CODE) {
                 quitProgram(API_CREDENTIALS_INCORRECT);
             }
             BEFORE_ALL_FLAG = true;
         }
-        PropertyConfigurator.configure(SRC_MAIN_RESOURCES_LOG4J_PROPERTIES);
+        PropertyConfigurator.configure(LOG4J_PROPERTIES);
+    }
 
+    @Before("@CleanEnvironment")
+    public void cleanEnvironment() {
+        deleteAllProjects();
+        deleteAllWorkspaces();
     }
 }

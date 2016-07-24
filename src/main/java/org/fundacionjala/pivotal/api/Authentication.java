@@ -3,7 +3,7 @@ package org.fundacionjala.pivotal.api;
 import com.github.markusbernhardt.proxy.ProxySearch;
 import com.jayway.restassured.builder.RequestSpecBuilder;
 import com.jayway.restassured.specification.RequestSpecification;
-import org.apache.log4j.Logger;
+
 import org.fundacionjala.pivotal.util.PropertiesInfo;
 
 import static com.jayway.restassured.RestAssured.baseURI;
@@ -12,13 +12,8 @@ import static com.jayway.restassured.RestAssured.baseURI;
  * @author Henrry Salinas.
  */
 public class Authentication {
-    private static final Logger LOGGER = Logger.getLogger(Authentication.class.getSimpleName());
 
     private static final String TOKEN_HEADER = "X-TrackerToken";
-
-    private static final String HTTP_PROXY_HOST = "http.proxyHost";
-
-    private static final String HTTP_PROXY_PORT = "http.proxyPort";
 
     private static Authentication instance;
 
@@ -45,7 +40,7 @@ public class Authentication {
         } else {
             requestSpecification = new RequestSpecBuilder()
                     .setRelaxedHTTPSValidation()
-                    .setProxy(PropertiesInfo.getInstance().getProxy())
+//                    .setProxy(PropertiesInfo.getInstance().getProxy())
                     .addHeader(TOKEN_HEADER, PropertiesInfo.getInstance().getApiToken())
                     .build();
         }

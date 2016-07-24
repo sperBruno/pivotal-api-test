@@ -15,6 +15,7 @@ import static org.fundacionjala.pivotal.util.Constants.CONFIG_PROPERTIES;
  * @author RosarioGarcia
  */
 public class PropertiesInfo {
+
     private static final Logger LOGGER = Logger.getLogger(PropertiesInfo.class.getSimpleName());
 
     private static PropertiesInfo instance;
@@ -61,10 +62,6 @@ public class PropertiesInfo {
         return getProperty(Constants.PASSWORD);
     }
 
-    public String getUrl() {
-        return getProperty(Constants.URL);
-    }
-
     public String getUrlApi() {
         return getProperty(Constants.URL_API);
     }
@@ -73,43 +70,16 @@ public class PropertiesInfo {
         return getProperty(Constants.API_TOKEN);
     }
 
-    public String getSauceUser() {
-        return getProperty(Constants.REMOTE_USER);
-    }
-
-    public String getSauceAccessKey() {
-        return getProperty(Constants.REMOTE_ACCESS_KEY);
-    }
-
-    public String getBrowser() {
-        return getProperty(Constants.LOCAL_BROWSER);
-    }
-
-    public String getRemoteBrowser() {
-        return getProperty(Constants.REMOTE_BROWSER);
-    }
-
-    public String getBrowserVersion() {
-        return getProperty(Constants.REMOTE_BROWSER_VERSION);
-    }
-
-    public String getPlatform() {
-        return getProperty(Constants.REMOTE_PLATFORM);
-    }
-
     public String getProxy() {
         return String.format("http://%s:%s", getProxyHost(), getProxyPort());
     }
 
-    public String getProxyHost() {
+    private String getProxyHost() {
         return getProperty(Constants.PROXY_HOST);
     }
 
-    public String getProxyPort() {
+    private String getProxyPort() {
         return getProperty(Constants.PROXY_PORT);
     }
 
-    public String getRemoteTestName() {
-        return getProperty(Constants.REMOTE_TEST_NAME);
-    }
 }
