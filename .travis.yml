@@ -1,0 +1,12 @@
+language:
+  java
+jdk:
+- oraclejdk8
+branches:
+  only: storyTest
+notifications:
+ email: true 
+ recipients:
+ - Rosario.Garcia@fundacion-jala.org
+ - Bruno.Barrios@fundacion-jala.org
+ 
