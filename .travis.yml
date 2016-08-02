@@ -1,0 +1,13 @@
+language: java
+java: 1.8
+jdk:
+  - oraclejdk7
+  - oraclejdk8
+sudo: required
+branches:
+    only: travisDemo
+notifications:
+   email:
+   recipients:
+    -sperbru797@gmail.com
+    -Rosario.Garcia@fundacion-jala.org
