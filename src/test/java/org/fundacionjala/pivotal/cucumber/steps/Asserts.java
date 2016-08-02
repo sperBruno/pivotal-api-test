@@ -12,7 +12,9 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 
 import static org.fundacionjala.pivotal.util.CommonMethods.getStringValueFromMapOfResponses;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
 
 public class Asserts {
 
@@ -61,14 +63,7 @@ public class Asserts {
 
     @Then("^I validate fields$")
     public void iValidateFields() {
-        StoryResources storyResources = new StoryResources(api);
-        api.getMapParameter().keySet().stream().forEach((step) -> {
-            assertEquals(storyResources.assertionMap().get(step), api.getMapParameter().get(step));
-        });
-    }
-
-    @And("^I expect the (.*) equals to (.*)$")
-    public void iExpectTheParamEqualsToValue(String property, String value) {
-        assertEquals(value, api.getMapParameter().get(property));
+        final String expected = "newStory";
+        assertEquals(expected, api.getResponse().jsonPath().get("name"));
     }
 }
