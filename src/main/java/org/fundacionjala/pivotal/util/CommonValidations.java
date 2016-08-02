@@ -6,8 +6,8 @@ import java.util.List;
  * Created by mijhailvillarroel on 7/22/2016.
  */
 public final class CommonValidations {
-    private CommonValidations() {
 
+    private CommonValidations() {
     }
 
     public static boolean validateId(String id) {
@@ -32,13 +32,11 @@ public final class CommonValidations {
 
     public static boolean isAInt(String value) {
         try {
-
-            Integer.parseInt((int) Double.parseDouble(value) + "");
+            Integer.parseInt(value);
             return true;
         } catch (NumberFormatException e) {
             return false;
         }
-
     }
 
     public static boolean validateKind(String valueSearch, String value) {

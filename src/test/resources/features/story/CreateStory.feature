@@ -8,12 +8,9 @@ Feature: Create new story in project from pivotal tracker
     Then I expect the status code 200
     And stored as Project1
 
-
+  @smoke @deleteAllProject
   Scenario: Create new story
     Given I send a POST request to /projects/[Project1.id]/stories
-      | name        | newStory    |
-      | description | description |
-      | estimate    | 1           |
-      | story_type  | feature     |
+      | name | newStory |
     Then I expect the status code 200
     And I validate fields
