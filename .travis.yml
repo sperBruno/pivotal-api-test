@@ -3,7 +3,7 @@ jdk:
 - oraclejdk8
 sudo: required
 script:
- gradle executeFeatures -PapiToken = 11ad529712e337a3661f599d2034be8e
+ gradle executeFeatures -PapiToken="11ad529712e337a3661f599d2034be8e"
 branches:
   only: develop
 notifications:
