@@ -4,6 +4,8 @@ jdk:
 sudo: required
 branches:
   only: develop
+env:
+  - apiToken = 11ad529712e337a3661f599d2034be8e
 notifications:
  email: true 
  recipients:
