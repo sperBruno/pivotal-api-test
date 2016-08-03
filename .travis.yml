@@ -2,7 +2,6 @@ language: java
 jdk:
 - oraclejdk8
 sudo: required
-script: bundle exec rake build && bundle exec rake builddoc
 branches:
   only: develop
 notifications:
