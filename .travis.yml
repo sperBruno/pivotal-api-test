@@ -1,13 +1,11 @@
 language: java
-java: 1.8
 jdk:
-  - oraclejdk7
-  - oraclejdk8
+- oraclejdk8
 sudo: required
 branches:
-    only: travisDemo
+  only: develop
 notifications:
-   email:
-   recipients:
-    -sperbru797@gmail.com
-    -Rosario.Garcia@fundacion-jala.org
+ email: true 
+ recipients:
+ - Rosario.Garcia@fundacion-jala.org
+ - Bruno.Barrios@fundacion-jala.org
