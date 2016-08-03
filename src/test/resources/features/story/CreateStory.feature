@@ -3,7 +3,7 @@ Feature: Create new story in project from pivotal tracker
 
   Background: Create Project
     Given I send a POST request to /projects
-      | names   | projectTest |
+      | name   | projectTest |
       | public | true        |
     Then I expect the status code 200
     And stored as Project1
