@@ -3,7 +3,7 @@ jdk:
 - oraclejdk8
 sudo: required
 branches:
-  only: storyTest
+  only: develop
 notifications:
  email: true 
  recipients:
