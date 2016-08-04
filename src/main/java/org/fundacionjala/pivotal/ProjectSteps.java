@@ -31,6 +31,10 @@ public enum ProjectSteps {
     CURRENT_ITERATION_NUMBER,
     ENABLE_FOLLOWING;
 
+    /**
+     * This method change the name to lower case format
+     * @return 
+     */
     public String nameLowerCase() {
         return name().toLowerCase();
     }

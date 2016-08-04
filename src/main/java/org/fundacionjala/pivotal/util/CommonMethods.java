@@ -9,7 +9,7 @@ import static org.fundacionjala.pivotal.api.RequestManager.deleteRequest;
 import static org.fundacionjala.pivotal.api.RequestManager.getRequest;
 import static org.fundacionjala.pivotal.util.Constants.PROJECTS_ENDPOINT;
 import static org.fundacionjala.pivotal.util.Constants.ATTRIBUTE_ID;
-import static org.fundacionjala.pivotal.api.Mapper.RESPONSE_VALUES;
+import static org.fundacionjala.pivotal.api.Mapper.responseValues;
 import static org.fundacionjala.pivotal.util.Constants.WORKSPACES_ENDPOINT;
 import static com.jayway.restassured.path.json.JsonPath.from;
 
@@ -52,7 +52,7 @@ public final class CommonMethods {
      * @return an String Value
      */
     public static String getStringValueFromMapOfResponses(String key, String value) {
-        return RESPONSE_VALUES.get(key).jsonPath().get(value);
+        return responseValues.get(key).jsonPath().get(value);
     }
 
     /**

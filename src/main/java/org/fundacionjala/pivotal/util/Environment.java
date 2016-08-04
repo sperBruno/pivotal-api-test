@@ -62,6 +62,13 @@ public class Environment {
         }
     }
 
+    /**
+     * This method is used to get a property
+     * from .properties file by the property Key
+     *
+     * @param propertyKey
+     * @return property value
+     */
     public String getProperty(String propertyKey) {
         String propertyValue = System.getProperty(propertyKey);
         if (propertyValue == null) {
