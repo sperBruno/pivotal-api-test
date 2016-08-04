@@ -2,9 +2,10 @@ language: java
 jdk:
 - oraclejdk8
 sudo: required
-env:
- - $apiToken= "b79614721c9f3fbc59017e10752c2a0b"
-script: gradle executeFeatures -PapiToken=$apiToken
+
+before_install:
+openssl aes-256-cbc -K $encrypted_0a6446eb3ae3_key -iv $encrypted_0a6446eb3ae3_key -in gradle.properties.enc -out gradle.properties -d
+
 branches:
 only: develop
 
