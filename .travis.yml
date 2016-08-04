@@ -1,7 +1,7 @@
 language: java
 jdk:
 - oraclejdk8
-sudo: false
+sudo: true
 script:
  gradle executeFeatures -PapiToken="11ad529712e337a3661f599d2034be8e"
 branches:
@@ -9,4 +9,4 @@ branches:
 notifications:
  email: true 
  recipients:
- - QADEV07@fundacion-jala.org
+ - Rosario.Garcia@fundacion-jala.org
