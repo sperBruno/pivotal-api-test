@@ -4,7 +4,7 @@ jdk:
 sudo: true
 env:
 -$apiToken="11ad529712e337a3661f599d2034be8e"
-script: executeFeatures -PapiToken=$apiToken
+script: gradle executeFeatures -PapiToken=$apiToken
 branches:
   only: develop
 notifications:
