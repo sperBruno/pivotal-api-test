@@ -14,14 +14,14 @@ import com.jayway.restassured.response.Response;
  */
 public final class Mapper {
 
-    public static final Map<String, Response> responseValues = new HashMap<>();
-    private static final String BRAQUET = "[";
+    private static final Map<String, Response> responseValues = new HashMap<>();
+
+    private static final String BRACKET = "[";
     private static final String REGEX_KEY = "\\[(.*?)\\.";
     private static final String REGEX_VALUE = "\\.(.*?)\\]";
     private static final String REGEX_REPLACE = "\\[(.*?)\\]";
 
     private Mapper() {
-
     }
 
     /**
@@ -33,10 +33,9 @@ public final class Mapper {
      * @return
      */
     public static String mapEndpoint(String endPoint) {
-        if (endPoint.contains(BRAQUET)) {
+        if (endPoint.contains(BRACKET)) {
             Matcher mKey = Pattern.compile(REGEX_KEY).matcher(endPoint);
             Matcher mValue = Pattern.compile(REGEX_VALUE).matcher(endPoint);
-
             while (mKey.find() && mValue.find()) {
                 final int groupRegex = 1;
                 String key = mKey.group(groupRegex);
@@ -56,5 +55,9 @@ public final class Mapper {
      */
     public static void addResponse(String key, Response response) {
         responseValues.put(key, response);
+    }
+
+    public static Map<String, Response> getResponseValues() {
+        return responseValues;
     }
 }

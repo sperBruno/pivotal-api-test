@@ -19,64 +19,64 @@ public class RequestManager {
 
     private static final Logger LOGGER = Logger.getLogger(RequestManager.class.getName());
 
-    private static RequestSpecification request = getInstance().getRequestSpecification();
+    private static final RequestSpecification REQUEST = getInstance().getRequestSpecification();
 
     private RequestManager() {
     }
 
     /**
-     * This method do the GET request with an ENDPOINT
+     * This method do the GET REQUEST with an ENDPOINT
      * to API of pivotal tracker
      *
      * @param endpoint
-     * @return response from GET request
+     * @return response from GET REQUEST
      */
     public static Response getRequest(String endpoint) {
         LOGGER.info("GET endpoint is: " + endpoint);
-        return given().spec(request)
+        return given().spec(REQUEST)
                 .when().get(endpoint);
     }
 
     /**
-     * This method do the POST request with an ENDPOINT
+     * This method do the POST REQUEST with an ENDPOINT
      * and PARAMETERS required
      * to API of pivotal tracker
      *
      * @param endpoint
      * @param parameters
-     * @return response from POST request
+     * @return response from POST REQUEST
      */
     public static Response postRequest(String endpoint, Map<String, Object> parameters) {
         LOGGER.info("POST endpoint is: " + endpoint);
-        return given().spec(request).params(parameters)
+        return given().spec(REQUEST).params(parameters)
                 .when().post(endpoint);
     }
 
     /**
-     * This method do the PUT request with an ENDPOINT
+     * This method do the PUT REQUEST with an ENDPOINT
      * and PARAMETERS required
      * to API of pivotal tracker
      *
      * @param endpoint
      * @param parameters
-     * @return response from PUT request
+     * @return response from PUT REQUEST
      */
     public static Response putRequest(String endpoint, Map<String, Object> parameters) {
         LOGGER.info("PUT endpoint is: " + endpoint);
-        return given().spec(request).params(parameters)
+        return given().spec(REQUEST).params(parameters)
                 .when().put(endpoint);
     }
 
     /**
-     * This method do the DELETE request with an ENDPOINT
+     * This method do the DELETE REQUEST with an ENDPOINT
      * to API of pivotal tracker
      *
      * @param endpoint
-     * @return response from DELETE request
+     * @return response from DELETE REQUEST
      */
     public static Response deleteRequest(String endpoint) {
         LOGGER.info("DELETE endpoint is: " + endpoint);
-        return given().spec(request).when().delete(endpoint);
+        return given().spec(REQUEST).when().delete(endpoint);
     }
 }
 

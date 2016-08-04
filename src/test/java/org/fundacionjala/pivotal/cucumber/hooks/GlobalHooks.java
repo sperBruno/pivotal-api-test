@@ -31,7 +31,7 @@ public class GlobalHooks {
     private static Environment environment;
 
     private static boolean beforeAllFlag = false;
-    
+
     public GlobalHooks() throws IOException {
         environment = getInstance();
     }
@@ -46,9 +46,7 @@ public class GlobalHooks {
                     deleteAllWorkspaces();
                 }
             });
-            if (StringUtils.isEmpty(environment.getEmail()) ||
-                    StringUtils.isEmpty(environment.getApiToken()) ||
-                    StringUtils.isEmpty(environment.getPassword())) {
+            if (StringUtils.isEmpty(environment.getApiToken())) {
                 quitProgram(PROPERTIES_FILE_UNFILLED);
             } else if (getRequest(PROJECTS_ENDPOINT).statusCode() != SUCCESS_STATUS_CODE) {
                 quitProgram(API_CREDENTIALS_INCORRECT);
