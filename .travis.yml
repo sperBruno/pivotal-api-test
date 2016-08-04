@@ -1,10 +1,9 @@
 language: java
 jdk:
 - oraclejdk8
-sudo: true
-env:
--$apiToken="11ad529712e337a3661f599d2034be8e"
-script: executeFeatures -PapiToken=$apiToken
+sudo: false
+script:
+ gradle executeFeatures -PapiToken=${apiToken}
 branches:
   only: develop
 notifications:
