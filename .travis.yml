@@ -6,9 +6,8 @@ env:
  - $apiToken= "b79614721c9f3fbc59017e10752c2a0b"
 script: gradle executeFeatures -PapiToken=$apiToken
 branches:
-only:
-   - develop
-   - test
+only: develop
+
 notifications:
  email: true 
  recipients:
