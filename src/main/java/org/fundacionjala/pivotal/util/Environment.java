@@ -22,10 +22,6 @@ public class Environment {
 
     private static final String PROXY_HOST = "proxyHost";
 
-    private static final String EMAIL = "email";
-
-    private static final String PASSWORD = "password";
-
     private static final String URL_API = "urlApi";
 
     private static final String API_TOKEN = "apiToken";
@@ -56,26 +52,25 @@ public class Environment {
             properties.load(fileInputStream);
             fileInputStream.close();
         } catch (FileNotFoundException e) {
-            LOGGER.warn("The properties file couldn't be found", e.getCause());
+            LOGGER.warn("The properties file couldn't be found", e);
         } catch (IOException e) {
-            LOGGER.warn("A problem of type", e.getCause());
+            LOGGER.warn("A problem of type", e);
         }
     }
 
+    /**
+     * This method is used to get a property
+     * from .properties file by the property Key
+     *
+     * @param propertyKey
+     * @return property value
+     */
     public String getProperty(String propertyKey) {
         String propertyValue = System.getProperty(propertyKey);
         if (propertyValue == null) {
             propertyValue = properties.getProperty(propertyKey);
         }
         return propertyValue;
-    }
-
-    public String getEmail() {
-        return getProperty(EMAIL);
-    }
-
-    public String getPassword() {
-        return getProperty(PASSWORD);
     }
 
     public String getUrlApi() {
