@@ -98,4 +98,7 @@ target/
 movies/target/
 movies/movies.iml
 /log/
-*.jundacionjala.api.iml
+*.iml
+/.gradle/
+/build/
+/cucumber-html-report/
